@@ -15,3 +15,33 @@
  */
  @import "bootstrap-sprockets";
  @import "bootstrap";
+
+ header{
+	height: 80px;
+  background-color:#87CEEB;
+		 .navbar-left{
+		    span{
+			font-size:20px;
+			padding-top:10px;
+    	}
+	}
+}
+
+.body{
+	margin-top:51px;
+}
+footer {
+background-color:#87CEEB;
+}
+
+
+
+.center-block{
+	width: 550px;
+	margin: 0 auto;
+}
+.about-img{
+	height: 200px;
+	width: 200px;
+
+}

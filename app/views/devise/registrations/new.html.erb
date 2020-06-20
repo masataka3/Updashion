@@ -1,0 +1,49 @@
+<div class ="container">
+  <div class ="center-block">
+      <h2 style="text-align: center;margin-bottom: 30px;">会員登録</h2>
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= devise_error_messages! %>
+      <div style="text-align: center;margin-bottom: 30px;">
+      登録は無料。10秒で完了します<br>
+      nutteは日本中の縫製職人にファッションアイテムを注文できるサービスです。
+    </p>
+    <div style="text-align:center; margin: 30px;">
+      会員として登録すると、こんなことができます。
+
+        <p style="text-align:center; margin-top: 30px;">洋服の歴史生地のを勉強できる</p>
+        <p>ほかの人とのやりとりができる</p>
+        <p>あなたから職人さんへ縫製を依頼</p>
+    </div>
+
+        <div class="field"style="text-align: center;margin-bottom: 30px;">
+          <%= f.label :ニックネーム %><br />
+          <%= f.text_field :name, autofocus: true, size:50, class: "name" %>
+           <p class="help-block">サイト内で表示されるあなたのニックネームです。</p>
+        </div>
+        <div class="field"style="text-align: center;margin-bottom: 30px;">
+          <%= f.label :メールアドレス %><br />
+          <%= f.email_field :email, size:50, class: "email" %>
+        </div>
+
+        <div class="field"style="text-align: center;margin-bottom: 30px;">
+          <%= f.label :パスワード %>
+          <% if @minimum_password_length %>
+          <em><%= @minimum_password_length %> 文字以上</em>
+          <% end %><br />
+          <%= f.password_field :password, autocomplete: "off", size:50, class: "password" %>
+          <p class="help-block">A〜Zの半角の小文字と大文字、０～９までの数字でご入力ください。</p>
+        </div>
+
+        <div class="field"style="text-align: center;margin-bottom: 30px;">
+          <%= f.label :パスワード（確認） %><br />
+          <%= f.password_field :password_confirmation, autocomplete: "off", size:50, class: "password_confirm" %>
+        </div>
+
+        <div class="actions" style="text-align: center;margin-bottom: 30px;">
+          <%= f.submit "会員登録" , class: 'btn btn-success ' %>
+        </div>
+      <% end %>
+
+      <%= render "devise/shared/links" %>
+　　</div>
+</div>
