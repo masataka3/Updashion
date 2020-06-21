@@ -1,4 +1,4 @@
-class CaterorysController < ApplicationController
+class CategorysController < ApplicationController
   def index
   end
 
