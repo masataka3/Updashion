@@ -1,2 +1,19 @@
-<h1>SubMaterials#index</h1>
-<p>Find me in app/views/sub_materials/index.html.erb</p>
+
+<div class="container">
+	<div class="row">
+　　　　	 <div class="col-xs-9">
+			 <table class="table table-hover table-inverse">
+				<tbody>
+					<%= @sub_materials.each do |material|%>
+					<tr>
+						<td><%= attachment_image_tag(material, :image, size:'80x80', class: "img-circle pull-left profile-thumb", fallback: "no_image.jpg")%></td>
+						<td><%= material.name %></td>
+						<td><%= material.title %></td>
+						<td><%= material.body %></td>
+					</tr>
+					<% end %>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

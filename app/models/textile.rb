@@ -1,3 +1,5 @@
 class Textile < ApplicationRecord
-	belongs_to: Categorys
+	belongs_to :category
+	attachment :image
+
 end

@@ -1,7 +1,6 @@
 class ArticlesController < ApplicationController
 	def index
-		@article = Article.all
-
+		@articles = Article.all
 	end
 
 	def show
@@ -10,6 +9,7 @@ class ArticlesController < ApplicationController
 	end
 
 	def create
+		@article = Article.new(article_params)
 		@article = Article.find(params[:id])
 		@article.user_id = current_user.id
 		if
@@ -26,6 +26,7 @@ class ArticlesController < ApplicationController
 
 	def update
 		@article = Article.faind(params[:id])
+		@article.update(article_params)
 	end
 
 	def new
