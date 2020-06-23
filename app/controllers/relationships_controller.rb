@@ -19,3 +19,4 @@ class RelationshipsController < ApplicationController
     @users = user.follower_user
   end
 end
+

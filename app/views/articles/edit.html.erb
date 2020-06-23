@@ -1,29 +1,25 @@
-
-
-
-<section class="section">
-  <div class="container">
-    <div class="columns is-centered">
-      <div class="column is-6">
-        <%= form_for @article do |f| %>
-           <div class="field">
-            <%= f.label :image, "写真", class: "label" %>
-            <%= f.attachment_field :image, class: "input" %>
-          </div>
-
-          <div class="field">
-            <%= f.label :title, "レシピ名", class: "label" %>
-            <%= f.text_field :title, class: "input" %>
-          </div>
-
-          <div class="field">
-            <%= f.label :body, "作り方", class: "label" %>
-            <%= f.text_area :body, class: "textarea" %>
-          </div>
-
-          <%= f.submit '投稿', class: "button is-success" %>
-        <% end %>
+<div class="container">
+  <div class ="center-block">
+    <h2 style="text-align: center;margin-bottom: 30px;">編集</h2>
+      <%= form_for @article do |f| %>
+      <div class="field"style="text-align: center;margin-bottom: 30px;">
+       <div> <%= f.label :image %></div>
+        <%= f.attachment_field :image, class: "image" %>
       </div>
-    </div>
+
+      <div class="field"style="text-align: center;margin-bottom: 30px;">
+          <%= f.label :title, "レシピ名", class: "label" %>
+          <%= f.text_field :title, class: "title",size:75 %>
+        </div>
+
+        <div class="field">
+          <%= f.label :body, "作り方", class: "label" %>
+          <%= f.text_area :body, class: "textarea", size: "20x10", class: "form-control"%>
+        </div>
+
+        <div class="actions" style="text-align: center;margin-bottom: 30px;">
+        <%= f.submit '投稿', class: "button is-success" %>
+      </div>
+      <% end %>
   </div>
-</section>
+</div>

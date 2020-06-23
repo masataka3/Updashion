@@ -9,10 +9,10 @@ ActiveAdmin.register Textile do
   #
   # or
   #
-  # permit_params do
-  #   permitted = [:image_id, :body, :title]
-  #   permitted << :other if params[:action] == 'create' && current_user.admin?
-  #   permitted
-  # end
-  
+  permit_params do
+     permitted = [:image_id, :body, :title]
+     permitted << :other if params[:action] == 'create' && current_user.admin?
+     permitted
+ end
+
 end

@@ -1,60 +1,71 @@
-<div id="wrap">
-<% if flash[:notice] %>
-	<div class="flash">
-		<%= flash[:notice] %>
-	</div>
-<% end %>
-<% if @article.errors.any? %>
-  <div class="alert alert-warning">
-     <ul>error
-        <% @article.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-    </ul>
+<style>
+  li {
+  display: inline-block;
+}
+
+</style>
+
+<div class="body">
+  <div class="flash">
+  	<%= flash[:notice] %>
   </div>
-<% end %>
-<div class ="container">
-  <div class="row">
-    <%= render 'users/info', user: current_user %>
-    <div class ="col-md-9">
+  <% if @article.errors.any? %>
+    <div class="alert alert-warning">
+       <ul>error
+          <% @article.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <div class ="container">
+    <div class="row">
+    <div class='col-md-9'>
       <table class ="table">
-        <h2 style="text-align: center;margin-bottom: 30px;">記事詳細</h2>
-          <tr>
-          <th class="image" style="margin: 0 auto">
-            <%= link_to user_path(@user) do %>
-            <%= attachment_image_tag @article, :image, size:'50x50', class: "img-circle pull-left profile-thumb", fallback: "5.jpg"%>
-            <% end %>
-          </th>
+        <tr>
+          <td valign="middle"><%= attachment_image_tag @article, :image, size:'200x200',fallback: "5.jpg"%>
+          </td>
         </tr>
         <tr>
-          <th class="media" style="text-align: center">
-            <%= link_to @article.title,article_path(@article.id) %>
-          </th>
+          <td><%= link_to(@article.user) do %>
+          <%= @article.user.name %>
+          <% end %>
+          </td>
         </tr>
         <tr>
-          <th style="text-align: center"><%= @article.body %></th></tr>
-            <% if @article.user_id == current_user.id %>
-          <td><%= link_to "Edit", edit_article_path(@article.id), class: "btn-sm btn-success" %></td>
-          <td><%= link_to "Destroy", article_path(@article.id), method: :delete, "data-confirm"=> "本当に削除してもよろしいですか？", class: "btn-sm btn-danger"%></td>
-        <% end %>
+          <td valign="middle"><%=@article.title%></td>
+        </tr>
         <tr>
-        <% if @article.favorited_by?(current_user) %>
-          <th style="text-align: center">
-            <%= link_to article_favorites_path(@article), method: :delete do %>
+          <td valign="middle"><%= @article.body %></td>
+        </tr>
+        <tr>
+          <td>
+            <ul style ="list-style-type: none; display: inline-block; ">
+              <% if @article.user_id == current_user.id %>
+                <li><%= link_to "Edit", edit_article_path(@article.id), class: "btn-sm btn-success" %></li>
+                <li> <%= link_to "Destroy", article_path(@article.id), method: :delete, "data-confirm"=> "本当に削除してもよろしいですか？", class: "btn-sm btn-danger"%></li>
+                <% end %>
+              <% if @article.favorited_by?(current_user) %>
+                <li>
+                  <%= link_to article_favorites_path(@article), method: :delete do %>
                 <i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>
-            <%= @article.favorites.count %> いいね
+                <%= @article.favorites.count %> いいね
             <% end %>
-          </th>
-          <% else %>
-          <th style="text-align: center">
-            <%= link_to article_favorites_path(@article), method: :post do %>
-              <i class="fa fa-heart-o" aria-hidden="true"></i>
-              <%= @article.favorites.count %> いいね
+              </li>
+            <% else %>
+              <li>
+              <%= link_to article_favorites_path(@article), method: :post do %>
+                <i class="fa fa-heart-o" aria-hidden="true"></i>
+                <%= @article.favorites.count %> いいね
+              <% end %>
+              </li>
             <% end %>
-          </th>
-         <% end %>
-       </tr>
+            </ul>
+          </td>
+        </tr>
       </table>
     </div>
-　　</div>
+  </div>
 </div>

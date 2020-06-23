@@ -1,14 +1,14 @@
 class SubMaterialsController < ApplicationController
   def index
-  	@sub_materials = Sub_material.all
+  	@sub_materials = SubMaterial.all
   end
 
   def show
-  	@sub_material = Sub_material.new
+  	@sub_material = SubMaterial.new
   end
 
   def new
-  	@sub_material = Sub_material.new
+  	@sub_material = SubMaterial.new
   end
 
   def edit
