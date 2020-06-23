@@ -4,7 +4,7 @@ class CreateCategories < ActiveRecord::Migration[5.2]
       t.integer :sub_material_id
       t.integer :textile_id
       t.integer :shop_id
-      t.integer :history
+      t.integer :history_id
 
       t.timestamps
     end

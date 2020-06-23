@@ -1,20 +1,34 @@
 <div class="container">
   <div class='row'>
-	<%= render 'users/info', user: current_user %>
+    <section class="section">
+      <div class='col-xs-9'>
+        <div class="columns is-multiline">
+          <%= @articles.each do |article|%>
+            <div class="column is-4">
+              <div class="card">
+                <div class="card-image">
+                  <figure class="image is-4by3">
+                    <%= link_to article_path(article) do %>
+                      <%= attachment_image_tag article, :image , fallback: "5.jpg", size: "120x100"%>
+                    <% end %>
+                  </figure>
+                </div>
+                <div class="card-content">
+                  <div class="media">
+                    <div class="media-content">
+                      <div class="title"><%=link_to article.user.name, user_path(article.user) %></div>
+                    </div>
+                  </div>
+
+                  <div class="content">
+                    <time><%= article.updated_at.strftime("%Y-%m-%d %H:%M") %></time>更新
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </section>
   </div>
 </div>
-<div class= "col-xs-9">
-	<%= @articles.each do |article|%>
-	<table>
-       <tr>
-         <td class="noborder"><%= attachment_image_tag(article, :image, fallback: "5.jpg", size: "120x100") %></td>
-       </tr>
-       <tr>
-         <td class="noborder"><%= link_to article.title, article_path(article.id) %></td>
-       </tr>
-	 <% end %>
-	<td class="noborder">
-		<div class='p-eu__paginate'>
-		</div>
-	</td>
-    </table>

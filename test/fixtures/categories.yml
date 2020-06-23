@@ -4,10 +4,10 @@ one:
   sub_material_id: 1
   textile_id: 1
   shop_id: 1
-  history: 1
+  history_id: 1
 
 two:
   sub_material_id: 1
   textile_id: 1
   shop_id: 1
-  history: 1
+  history_id: 1
