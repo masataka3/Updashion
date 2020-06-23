@@ -6,28 +6,30 @@ class ArticlesController < ApplicationController
 	def show
 		@article = Article.find(params[:id])
 		@comment = Comment.new
+		@article_comments = @article.comments
+		@user = User.find_by(id: @article.user_id)
 	end
 
 	def create
 		@article = Article.new(article_params)
-		@article = Article.find(params[:id])
-		@article.user_id = current_user.id
-		if
-		  @article.save
-		  redirect_to @article
+			@article.user = current_user
+		if  @article.save
+		    redirect_to  article_path(@article), notice: "新規投稿しました。"
 		else
-			render "index"
+		   redirect_to article_path(@article)
 		end
 	end
 
 	def edit
 		@article = Article.faind(params[:id])
-	end
+  end
 
 	def update
 		@article = Article.faind(params[:id])
-		@article.update(article_params)
+		if  @article.update(article_params)
+		    redirect_to article_path(@article), notice: "記事を更新しました。"
 	end
+  end
 
 	def new
 		@article = Article.new
@@ -36,7 +38,7 @@ class ArticlesController < ApplicationController
 	def destroy
 		@article = Article.faind(params[:id])
 		@article.destroy
-		redirect_to article_path(article)
+		redirect_to article_path(article), notice: "記事を削除しました。"
 	end
 
 	def confirm
