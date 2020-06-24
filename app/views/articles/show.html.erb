@@ -97,24 +97,23 @@
     <%= f.submit "送信する", class: "btn btn-lg btn-base-1 mt-20 pull-right" %>
 <% end %>
     <% @article.comments.each do |comment| %>
-        <li class="comment">
-            <div class="comment-body bb">
-                <div class="comment-avatar">
-                    <div class="avatar">
-                        <%= image_tag('comment.png', style: "width: 60px; height: 60px;") %>
-                    </div>
-                </div>
-                <div class="comment-text">
-                    <div class="comment-author clearfix">
-                        <a href="#" class="link-author"><%= comment.user.name %></a>
-                        <span class="comment-meta">
+            <table class="comment">
+              <tr>
+                <th class="comment-avatar">
+                  <%= attachment_image_tag comment.user.profile_image, fallback: "comment.png'",size: "60x60" %>
+                </th>
+              </tr>
+              <tr>
+                <th class="comment-author clearfix">
+                  <%= comment.user.name %>さん
+                </th>
+              </tr>
+                    <div>
                         <span class="comment-date"><%= comment.created_at.strftime('%Y/%m/%d') %></span>
-                        </span>
                     </div>
-                    <div class="comment-entry"><%= comment.comment %></div>
+                    <th class="comment-entry"><%= comment.comment %></th>
                 </div>
-            </div>
-        </li>
+            </table>
     <% end %>
     </div>
   </div>

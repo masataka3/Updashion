@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'inquiry/index'
-  get 'inquiry/confirm'
-  get 'inquiry/thanks'
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 
@@ -16,6 +13,7 @@ Rails.application.routes.draw do
     get 'follows' => 'relationships#follower', as: 'follows'
     get 'followers' => 'relationships#followed', as: 'followers'
   end
+   put "/users/:id/hide" => "users#hide", as: 'users_hide'
 
   resources :articles do
     resources :comments, only: [:create, :destroy]
@@ -27,9 +25,9 @@ Rails.application.routes.draw do
   resources :shops
   resources :sub_materials
 
-  get   'inquiry'         => 'inquiry#index'     # 入力画面
-  post  'inquiry/confirm' => 'inquiry#confirm'   # 確認画面
-  post  'inquiry/thanks'  => 'inquiry#thanks'    # 送信完了画面
+  get 'inquiry/index'
+  get 'inquiry/confirm'
+  get 'inquiry/thanks'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

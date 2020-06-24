@@ -15,21 +15,24 @@ class User < ApplicationRecord
 
   validates :name, presence: true
 
+  def active_for_authentication?
+    super && (self.is_deleted == false)
+  end
+  
+  # いいね機能
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?
   end
 
-
+  # フォロー機能
   def follow(user_id)
     follower.create(followed_id: user_id)
   end
 
-  # ユーザーのフォローを外す
   def unfollow(user_id)
     follower.find_by(followed_id: user_id).destroy
   end
 
-  # フォローしていればtrueを返す
   def following?(user)
     following_user.include?(user)
   end

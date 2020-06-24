@@ -131,6 +131,7 @@ ActiveRecord::Schema.define(version: 2020_06_24_054918) do
     t.string "profile_image_id"
     t.text "profile"
     t.string "name"
+    t.boolean "is_deleted", default: false, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
