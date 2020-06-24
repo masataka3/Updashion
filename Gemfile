@@ -69,5 +69,7 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'jquery-rails'
 gem 'pry-byebug'
 gem 'activeadmin'
+gem 'aws-sdk-s3', '~> 1.17.0'
+gem 'dotenv-rails'
 
 

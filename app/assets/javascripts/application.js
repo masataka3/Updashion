@@ -15,28 +15,18 @@
 //= require jquery
 //= require bootstrap-sprockets
 //= require_tree .
+//= require inline-attachment
+//= require jquery.inline-attachment
 
-// ロード画面の記述
-$(function() {
-  var h = $(window).height();
 
-  $('#wrap').css('display','none');
-  $('#loader-bg ,#loader').height(h).css('display','block');
-});
 
-$(window).load(function () { //全ての読み込みが完了したら実行
-  $('#loader-bg').delay(900).fadeOut(800);
-  $('#loader').delay(600).fadeOut(300);
-  $('#wrap').css('display', 'block');
-});
 
 $(function(){
-  setTimeout('stopload()',10000);
+  $('.uploadable').inlineattachment({
+    urlText: '<img src="{filename}">',
+    uploadUrl: "/path/to/create",
+    uploadFieldName: "asset[file]",
+    allowedTypes: ['image/jpeg', 'image/png', 'image/jpg', 'image/gif'],
+    extraHeaders: {"X-CSRF-Token": $("meta[name=csrf-token]").attr("content")}
+  });
 });
-
-function stopload(){
-  $('#wrap').css('display','block');
-  $('#loader-bg').delay(900).fadeOut(800);
-  $('#loader').delay(600).fadeOut(300);
-}
-</script>

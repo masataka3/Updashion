@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
     when AdminUser
       new_admin_session_path
     when User
-		root_path
+		  root_path
 	end
   end
 
