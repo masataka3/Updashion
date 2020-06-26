@@ -3,7 +3,7 @@
 		i{
 		  text-align: center;
 		  padding: 0 10px;
-		  margin: 20px 0;
+		  margin: 40px 0;
 		}
 		h4{
 			margin:5px;
@@ -13,7 +13,11 @@
     <div class='body'>
 	  <div class='container'>
 		<nav class='nav navbar-nav navbar-right' >
-			<div class="social">
+			<div><%= link_to root_path do %> <img src="/assets/logo.png"><% end %></div>
+			  <p>CopyRight Updashiom.inc</p>
+		</nav>
+		<nav class='nav navbar-nav navbar-left'>
+			<div class="social" >
 			  <%=link_to inquiry_index_path do%>
 			    <i class="far fa-envelope fa-2x faa-wrench animated-hover faa-vertical"></i>
 			    <% end %>
@@ -27,10 +31,7 @@
 			  	<i class="fab fa-instagram fa-2x faa-wrench animated-hover faa-vertical"></i>
 			  <% end %>
 			</div>
-		</nav>
-		<nav class='nav navbar-nav navbar-left'>
-			<h4>ここにロゴが入ります</h4>
-		      <p>CopyRight Updashiom.inc</p>
+			<p>東京都渋谷区道玄坂2-5-11 室町ビル202</p>
 		</nav>
       </div>
 	</div>

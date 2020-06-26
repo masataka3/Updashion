@@ -12,7 +12,13 @@
 				<tbody>
 					<%= @textiles.each do |textile|%>
 					<tr>
-						<td><%= attachment_image_tag(textile, :image, size:'80x80', class: "img-circle pull-left profile-thumb", fallback: "no_image.jpg")%></td>
+						<td>　
+							<% if @textile.image? %>
+							　　<%= image_tag @textile.image.thumb.url %>
+							　<% else %>
+							　　<%= image_tag 'noimage.gif' %>
+							　<% end %>
+						</td>
 						<td><%= textile.title %></td>
 						<td><%= textile.body %></td>
 					</tr>

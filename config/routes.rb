@@ -26,8 +26,8 @@ Rails.application.routes.draw do
   resources :sub_materials
 
   get 'inquiry/index'
-  get 'inquiry/confirm'
-  get 'inquiry/thanks'
+  post 'inquiry/confirm'
+  post 'inquiry/thanks'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

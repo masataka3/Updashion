@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
 
-  
+
   def after_sign_in_path_for(resource)
 	  case resource
   	when AdminUser
@@ -18,6 +18,8 @@ class ApplicationController < ActionController::Base
       new_admin_session_path
     when User
 		  root_path
+    else
+      root_path
 	end
   end
 

@@ -15,18 +15,4 @@
 //= require jquery
 //= require bootstrap-sprockets
 //= require_tree .
-//= require inline-attachment
-//= require jquery.inline-attachment
 
-
-
-
-$(function(){
-  $('.uploadable').inlineattachment({
-    urlText: '<img src="{filename}">',
-    uploadUrl: "/path/to/create",
-    uploadFieldName: "asset[file]",
-    allowedTypes: ['image/jpeg', 'image/png', 'image/jpg', 'image/gif'],
-    extraHeaders: {"X-CSRF-Token": $("meta[name=csrf-token]").attr("content")}
-  });
-});

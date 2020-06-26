@@ -68,8 +68,14 @@ gem "refile-mini_magick"
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'jquery-rails'
 gem 'pry-byebug'
+
+# admin
 gem 'activeadmin'
-gem 'aws-sdk-s3', '~> 1.17.0'
+gem 'carrierwave'
+
+
 gem 'dotenv-rails'
+gem 'acts-as-taggable-on', '~> 6.0'
+gem 'gimei'
 
 

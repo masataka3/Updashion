@@ -1,12 +1,12 @@
-ActiveAdmin.register Textile do
+ActiveAdmin.register SubMaterial do
 
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  permit_params :image_id, :body, :title
-   form do |f|
+   permit_params :title, :body, :image_id
+    form do |f|
     f.inputs do
       f.input :title
       f.input :body
@@ -14,23 +14,22 @@ ActiveAdmin.register Textile do
     end
     f.actions
   end
-    show do |textile_image|
+    show do |sub_image|
       attributes_table do
         row :title
         row :body
         # show画面で画像を表示するためのタグを追加
         row :image do
-          image_tag(textile.image.url)
+          image_tag(sub_material.image.url)
         end
       end
     end
   #
   # or
   #
-  # permit_params do
-     # permitted = [:image_id, :body, :title]
-     # permitted << :other if params[:action] == 'create' && current_user.admin?
-     # permitted
- # end
-
+   # permit_params do
+   #   permitted = [:title, :body, :image_id]
+   #   permitted << :other if params[:action] == 'create' && current_user.admin?
+   #   permitted
+   # end
 end

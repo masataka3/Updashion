@@ -4,14 +4,15 @@
 　　　　	 <div class="col-xs-9">
 			 <table class="table table-hover table-inverse">
 				<tbody>
-					<%= @sub_materials.each do |material|%>
+
 					<tr>
-						<td><%= attachment_image_tag(material, :image, size:'80x80', class: "img-circle pull-left profile-thumb", fallback: "no_image.jpg")%></td>
-						<td><%= material.name %></td>
+						<%= @sub_materials.each do |material|%>
+						<td><%= attachment_image_tag(material, :image, size:'80x80', class: "img-circle pull-left profile-thumb", fallback: "5.png")%></td>
 						<td><%= material.title %></td>
 						<td><%= material.body %></td>
+						<% end %>
 					</tr>
-					<% end %>
+
 				</tbody>
 			</table>
 		</div>

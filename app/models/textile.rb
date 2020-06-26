@@ -1,6 +1,6 @@
 class Textile < ApplicationRecord
-	belongs_to :category
-	attachment :image
+
+	mount_uploader :image, ImageUploader
 
   def self.search(search) #self.でクラスメソッドとしている
     if search # Controllerから渡されたパラメータが!= nilの場合は、titleカラムを部分一致検索

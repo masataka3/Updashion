@@ -7,18 +7,18 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
   attachment :profile_image, destroy: false
-
   has_many :follower, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
   has_many :followed, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
   has_many :following_user, through: :follower, source: :followed
   has_many :follower_user, through: :followed, source: :follower
+  has_many :clips, dependent: :destroy
 
   validates :name, presence: true
 
   def active_for_authentication?
     super && (self.is_deleted == false)
   end
-  
+
   # いいね機能
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?

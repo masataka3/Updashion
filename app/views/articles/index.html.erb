@@ -1,38 +1,28 @@
 <div class="body">
-<div class="container">
-  <div class='row'>
-    <section class="section">
-      <div class='col-md-12'>
-        <div class="columns is-multiline">
-        <% @articles.each do |article| %>
-          <div class="column is-4" style="margin: 10px;">
-            <div class="card">
-              <div class="card-image">
-                <figure class="image is-4by3">
+  <div class="container">
+    <div class='row'>
+      <section class="section">
+        <div class='col-md-12'>
+           <div style="display: flex;">
+            <% @articles.each do |article| %>
+               <div>
                 <%= link_to article_path(article) do %>
-                  <%= attachment_image_tag article, :image, fallback: "5.jpg",size: "200x200"%>
+                  <%= attachment_image_tag article, :image, fallback: "5.png",size: "200x200"%>
                 <% end %>
-                </figure>
+                </div>
+               <div class="noborder">
+                <%= link_to article_path(article), class: "panel-block" do %>
+                  <span class="panel-icon">
+                    <i class="fas fa-book" aria-hidden="true"></i>
+                  </span>この作り方を見る
+                <% end %>
               </div>
-              <div>
-                <%= article.title %>
-              </div>
-            <div class="media-content">
-              <%= link_to article_path(article), class: "panel-block" do %>
-                <span class="panel-icon">
-                  <i class="fas fa-book" aria-hidden="true"></i>
-                </span>この作り方を見る
-              <% end %>
-            </div>
-            <div class="content" style ="margin-bottom:30px;">
-              <time><%= article.updated_at.strftime("%Y-%m-%d %H:%M") %></time>更新
-            </div>
-            </div>
-          </div>
-        <% end %>
+             <div class="noborder"><%= article.title %></div>
+               <div class="noborder"><time><%= article.updated_at.strftime("%Y-%m-%d %H:%M") %></time>更新</div>>
+             <% end %>
+           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
   </div>
-</div>
 </div>

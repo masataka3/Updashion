@@ -1,119 +1,100 @@
-<style>
-    li {
-  display: inline-block;
-}
-</style>
-
 <div class="body">
   <div class="flash">
   	<%= flash[:notice] %>
   </div>
   <% if @article.errors.any? %>
-    <div class="alert alert-warning">
-       <ul>error
-          <% @article.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-      </ul>
-    </div>
+  <div class="alert alert-warning">
+     <ul>error
+        <% @article.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+    </ul>
+  </div>
   <% end %>
-
-
-  <div class="container">
-    <div class="columns is-centered">
-      <div class="column is-7">
-        <div class="card">
-          <div class="card-image">
-            <figure class="image is-4by3">
-              <%= attachment_image_tag @article, :image ,size:'300x300',fallback: "5.jpg"%>
-            </figure>
+  <div class="container"style="margin: 0 auto">
+    <div>
+    <div style="display: inline-block;">
+      <div>
+          <div >
+            <%= attachment_image_tag @user, :profile_image ,size:'32x32',fallback: "5.png"%>
           </div>
-          <div class="card-content">
-            <div class="media">
-              <div class="media-content">
-                <p class="title is-4"><%= @article.title %></p>
-              </div>
-            </div>
-            <div class="content" >
-              <table align="center">
-                <tr>
-                  <th>作り方</th>
-                </tr>
-                <tr>
-                  <td><%= simple_format @article.body %></td>
-                </tr>
-              </table>
-              <% if @article.user.id == current_user.id %>
-                <li> <%= link_to "編集画面へ", edit_article_path(@article), class: "button is-success" %>
-                </li>
-                <li>
-                 <%= link_to "Destroy", article_path(@article.id), method: :delete, "data-confirm"=> "本当に削除してもよろしいですか？", class: "btn-sm btn-danger"%>
-               </li>
-               <% if @article.favorited_by?(current_user) %>
-                <div>
-                  <%= link_to article_favorites_path(@article), method: :delete do %>
-                <i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>
-                <%= @article.favorites.count %>
-            <% end %>
-              </div>
-            <% else %>
-              <div>
-              <%= link_to article_favorites_path(@article), method: :post do %>
-                <i class="fa fa-heart-o" aria-hidden="true"></i>
-                <%= @article.favorites.count %>
-              <% end %>
-              </div>
-            <% end %>
-              <% end %>
-            </div>
-          </div>
-        </div>
       </div>
+    </div>
+      <div style="display: inline-block;margin-bottom: 30px">
+        <%=link_to user_path(@user) do %>
+        <%= @user.name %>さん
+        <% end %>
+      </div>
+      <span style =" margin:0 20px;">•</span>
+      <% if current_user != @user %>
+        <% if current_user.following?(@user) %>
+        <%= link_to 'フォロー外す', user_relationships_path(@user.id), method: :delete, class: "btn btn-primary" %>
+      <% else %>
+        <%= link_to 'フォローする', user_relationships_path(@user.id), method: :post, class: "btn btn-success" %>
+      <% end %>
+      <% end %>
+    </div>
 
-      <div class="column is-4">
-        <div class="panel is-link">
-          <p class="panel-heading">
-            By <%= @article.user.name %>
-          </p>
-          <div class="panel-block">
-            <p class="control">
-              <%= @article.user.profile %>
-            </p>
+    <div style="display: inline-block;">
+      <div>
+          <div >
+            <%= attachment_image_tag @article, :image ,size:'300x300',fallback: "5.png"%>
           </div>
-          <%= link_to user_path(@article.user), class: "panel-block" do %>
-            <span class="panel-icon">
-              <i class="fas fa-user" aria-hidden="true"></i>
-            </span>
-            <%= @article.user.name %> さんのページへ
+      </div>
+    </div>
+    <div class="columns is-centered"style="display: inline-block;margin-left:60px;">
+      <h3 class="title is-4"><%= @article.title %></h3>
+      <div class="content">
+        <p>作り方</p>
+        <div><%= simple_format @article.body %></div>
+      </div>
+            <% @article.tag_list.each do |article| %>
+              <span style="background-color: #e9e9e9; border-radius: 5px;"><%= article %></span>
+            <% end %>
+    </div>
+        <div>
+          <% if @article.favorited_by?(current_user) %>
+          <div style="display: inline-block;">
+              <%= link_to article_favorites_path(@article), method: :delete do %>
+              <i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>
+                <%= @article.favorites.count %>
+              <% end %>
+            </div>
+            <% else %>
+            <div style="display: inline-block;">
+              <%= link_to article_favorites_path(@article), method: :post do %>
+              <i class="fa fa-heart-o" aria-hidden="true"></i>
+            <% end %>
+          <% end %>
+          </div>
+
+
+            <% if @article.user.id == current_user.id %>
+              <div style="display: inline-block;"> <%= link_to "編集画面へ", edit_article_path(@article), class: "button is-success" %></div>
+              <div style="display: inline-block;"><%= link_to "Destroy", article_path(@article.id), method: :delete, "data-confirm"=> "本当に削除してもよろしいですか？", class: "btn-sm btn-danger"%></div>
+            <% end %>
+          </div>
+          <div class="field">
+          <%= form_for [@article, @comment] do |f| %>
+              <%= f.text_field :comment,autofocus: true, size:30%>
+              <%= f.submit "送信する"%>
+          <% end %>
+          </div>
+          <div>
+          <h2>コメント一覧</h2>
+          <% @article.comments.each do |comment| %>
+          <table class="comment">
+            <tr>
+              <th class="comment-author clearfix">
+                <%= comment.user.name %>さん
+              </th>
+            </tr>
+                  <div>
+                      <span class="comment-date"><%= comment.created_at.strftime('%Y/%m/%d') %></span>
+                  </div>
+                  <th class="comment-entry"><%= comment.comment %></th>
+              </div>
+          </table>
           <% end %>
         </div>
-      </div>
-      <%= form_for [@article, @comment] do |f| %>
-    <div class="row">
-        <div class="col-sm-12">
-            <%= f.text_area :comment, rows:'5', class: "form-control",placeholder: "コメントをここに" %>
-        </div>
-    </div>
-    <%= f.submit "送信する", class: "btn btn-lg btn-base-1 mt-20 pull-right" %>
-<% end %>
-    <% @article.comments.each do |comment| %>
-            <table class="comment">
-              <tr>
-                <th class="comment-avatar">
-                  <%= attachment_image_tag comment.user.profile_image, fallback: "comment.png'",size: "60x60" %>
-                </th>
-              </tr>
-              <tr>
-                <th class="comment-author clearfix">
-                  <%= comment.user.name %>さん
-                </th>
-              </tr>
-                    <div>
-                        <span class="comment-date"><%= comment.created_at.strftime('%Y/%m/%d') %></span>
-                    </div>
-                    <th class="comment-entry"><%= comment.comment %></th>
-                </div>
-            </table>
-    <% end %>
-    </div>
   </div>
