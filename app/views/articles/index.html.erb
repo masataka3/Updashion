@@ -1,9 +1,19 @@
+<style>
+  .container-article {
+  margin: 0 auto;
+  padding: 5px;
+  width: 90%;
+  column-count: 3;
+  column-gap: 0;
+}
+</style>
+
 <div class="body">
-  <div class="container">
+  <div class="container-article">
     <div class='row'>
-        <div class='col-md-12'>
+          <div style="border : 1px;">
           <section class="section">
-           <div style="display: flex;flex-wrap: wrap;">
+           <div>
             <% @articles.each do |article| %>
                <div>
                 <%= link_to article_path(article) do %>
@@ -18,9 +28,8 @@
                 <% end %>
               </div>
              <div class="noborder"><%= article.title %></div>
-               <div class="noborder"><time><%= article.updated_at.strftime("%Y-%m-%d %H:%M") %></time>更新</div>>
+               <div class="noborder"><time><%= article.updated_at.strftime("%Y-%m-%d %H:%M") %></time>更新</div>
              <% end %>
-           </div>
           </section>
         </div>
     </div>

@@ -14,7 +14,7 @@ ActiveAdmin.register History do
     end
     f.actions
   end
-    show do |history_image|
+    show do |history|
       attributes_table do
         row :title
         row :body

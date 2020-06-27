@@ -14,7 +14,7 @@ class SubMaterialsController < ApplicationController
    def create
     @sub_material = SubMaterial.new(sub_material_params)
     @sub_material.save
-  end
+   end
 
   def edit
     @sub_material = SubMaterial.find(params[:id])
@@ -30,6 +30,4 @@ class SubMaterialsController < ApplicationController
   def sub_material_params
     params.require(:sub_material).permit(:title,:body,:image)
   end
-end
-
 end

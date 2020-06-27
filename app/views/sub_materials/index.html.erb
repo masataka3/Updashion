@@ -6,7 +6,7 @@
 				<tbody>
 
 					<tr>
-						<%= sub_materials.each do |material|%>
+						<%= @sub_materials.each do |material|%>
 						<td><
 							<% if material.image? %>
 							　　<%= image_tag material.image.url %>

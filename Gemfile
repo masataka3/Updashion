@@ -72,6 +72,8 @@ gem 'pry-byebug'
 # admin
 gem 'activeadmin'
 gem 'carrierwave'
+gem "gmaps4rails"
+gem "geocoder"
 
 
 

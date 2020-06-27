@@ -1,2 +1,24 @@
-<h1>Shops#index</h1>
-<p>Find me in app/views/shops/index.html.erb</p>
+
+<div class="container">
+  <div class="row">
+　　　　   <div class="col-xs-9">
+       <table class="table table-hover table-inverse">
+        <tbody>
+
+          <tr>
+            <%= @shops.each do |shop|%>
+            <td><
+              <% if shop.image? %>
+              　　<%= image_tag shop.image.url %>
+              <% end %></td>
+            <td><%= shop.title %></td>
+            <td><%= shop.body %></td>
+            <td><%= link_to "詳細", shop_path(shop) %>
+            <% end %>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

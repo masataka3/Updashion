@@ -14,7 +14,7 @@ ActiveAdmin.register SubMaterial do
     end
     f.actions
   end
-    show do |sub_image|
+    show do |sub_material|
       attributes_table do
         row :title
         row :body

@@ -6,7 +6,8 @@ class BookmarksController < ApplicationController
   end
 
   def destroy
-    current_user.bookmarks.find_by(article_id: params[:article_id]).destroy!
+    bookmark = current_user.bookmarks.find_by(article_id: params[:article_id])
+    bookmark.destroy!
     redirect_to articles_path, success: t('.flash.not_bookmark')
   end
 end

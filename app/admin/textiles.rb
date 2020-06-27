@@ -14,7 +14,7 @@ ActiveAdmin.register Textile do
     end
     f.actions
   end
-    show do |textile_image|
+    show do |textile|
       attributes_table do
         row :title
         row :body

@@ -51,8 +51,8 @@ ActiveRecord::Schema.define(version: 2020_06_26_144548) do
   end
 
   create_table "bookmarks", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "article_id"
+    t.integer "user_id", null: false
+    t.integer "article_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["article_id"], name: "index_bookmarks_on_article_id"
@@ -103,6 +103,9 @@ ActiveRecord::Schema.define(version: 2020_06_26_144548) do
     t.string "title"
     t.text "body"
     t.string "image"
+    t.string "address"
+    t.float "latitude"
+    t.float "longitude"
   end
 
   create_table "sub_materials", force: :cascade do |t|

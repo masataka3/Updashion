@@ -1,9 +1,9 @@
 <% if article.bookmark_by?(current_user) %>
 	<div style='display: inline; float: right;'>
-	    <%= link_to "お気に入りを外す", article_bookmarks_path(article.id), method: :post, id: :"js-bookmark-button-for-article-#{article.id}" %>
+	    <%= link_to "", article_bookmarks_path(article.id), method: :post, id: :"js-bookmark-button-for-article-#{article.id}" , class: "glyphicon glyphicon-bookmark"%>
 	  </div>
 <% else %>
     <div style='display: inline; float: right;'>
-	    <%= link_to "お気に入り", article_bookmarks_path(article.id), method: :post, id: :"js-bookmark-button-for-article-#{article.id}" %>
+	    <%= link_to "", article_bookmarks_path(article.id), method: :post, id: :"js-bookmark-button-for-article-#{article.id}" , class: "glyphicon glyphicon-bookmark"%>
 	  </div>
 <% end %>
