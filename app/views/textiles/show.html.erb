@@ -1,2 +1,13 @@
-<h1>Textiles#show</h1>
-<p>Find me in app/views/textiles/show.html.erb</p>
+ <div>
+      <div>
+          <div>
+             <%= image_tag @textile.image.url, size: "80x80"%>
+          <div>
+      </div>
+    </div>
+    <div class="columns is-centered"style="display: inline-block;margin-left:60px;">
+      <h3 class="title is-4"><%= @textile.title %></h3>
+      <div class="content">
+        <p>作り方</p>
+        <div><%= simple_format @textile.body %></div>
+      </div>

@@ -11,7 +11,8 @@ class User < ApplicationRecord
   has_many :followed, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
   has_many :following_user, through: :follower, source: :followed
   has_many :follower_user, through: :followed, source: :follower
-  has_many :clips, dependent: :destroy
+  has_many :bookmarks, dependent: :destroy
+  has_many :bookmark_articles, through: :bookmarks, source: :article
 
   validates :name, presence: true
 

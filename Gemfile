@@ -74,6 +74,7 @@ gem 'activeadmin'
 gem 'carrierwave'
 
 
+
 gem 'dotenv-rails'
 gem 'acts-as-taggable-on', '~> 6.0'
 gem 'gimei'

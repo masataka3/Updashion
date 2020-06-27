@@ -5,6 +5,10 @@
         <div class='col-md-9'>
           <div class="center-block">
             <h2>投稿一覧</h2>
+            <% @user.bookmark_articles.each do |article| %>
+            <%= article.id %>
+            <%= article.title %>
+            <% end %>
             <div class="columns is-multiline">
             <% @user.articles.each do |article| %>
               <div class="column is-4">
