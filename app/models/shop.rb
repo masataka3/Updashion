@@ -1,4 +1,4 @@
 class Shop < ApplicationRecord
-	attachment :image
+	mount_uploader :image, ImageUploader
 
 end

@@ -13,14 +13,13 @@
 					<%= @textiles.each do |textile|%>
 					<tr>
 						<td>　
-							<% if @textile.image? %>
-							　　<%= image_tag @textile.image.thumb.url %>
-							　<% else %>
-							　　<%= image_tag 'noimage.gif' %>
-							　<% end %>
+							<% if textile.image? %>
+							　　<%= image_tag textile.image.url, size: "60x60"%>
+							<% end %>
 						</td>
 						<td><%= textile.title %></td>
 						<td><%= textile.body %></td>
+						<td><%= link_to "詳細", textile_path(textile) %>
 					</tr>
 					<% end %>
 				</tbody>

@@ -6,8 +6,11 @@
 				<tbody>
 
 					<tr>
-						<%= @sub_materials.each do |material|%>
-						<td><%= attachment_image_tag(material, :image, size:'80x80', class: "img-circle pull-left profile-thumb", fallback: "5.png")%></td>
+						<%= sub_materials.each do |material|%>
+						<td><
+							<% if material.image? %>
+							　　<%= image_tag material.image.url %>
+							<% end %></td>
 						<td><%= material.title %></td>
 						<td><%= material.body %></td>
 						<% end %>

@@ -29,6 +29,6 @@ class TextilesController < ApplicationController
 
   private
   def textile_params
-  	params.require(:textile).permit(:title,:body,:image_id,:category)
+  	params.require(:textile).permit(:title,:body,:image,:category)
   end
 end

@@ -5,7 +5,7 @@ ActiveAdmin.register History do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-   permit_params :image_id, :body, :title
+   permit_params :image, :body, :title
     form do |f|
     f.inputs do
       f.input :title
@@ -18,7 +18,6 @@ ActiveAdmin.register History do
       attributes_table do
         row :title
         row :body
-        # show画面で画像を表示するためのタグを追加
         row :image do
           image_tag(history.image.url)
         end

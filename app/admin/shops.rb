@@ -5,7 +5,7 @@ ActiveAdmin.register Shop do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-   permit_params :title, :body, :image_id
+   permit_params :title, :body, :image
     form do |f|
     f.inputs do
       f.input :title
@@ -18,7 +18,6 @@ ActiveAdmin.register Shop do
       attributes_table do
         row :title
         row :body
-        # show画面で画像を表示するためのタグを追加
         row :image do
           image_tag(shop.image.url)
         end

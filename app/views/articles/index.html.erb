@@ -1,9 +1,9 @@
 <div class="body">
   <div class="container">
     <div class='row'>
-      <section class="section">
         <div class='col-md-12'>
-           <div style="display: flex;">
+          <section class="section">
+           <div style="display: flex;flex-wrap: wrap;">
             <% @articles.each do |article| %>
                <div>
                 <%= link_to article_path(article) do %>
@@ -21,8 +21,8 @@
                <div class="noborder"><time><%= article.updated_at.strftime("%Y-%m-%d %H:%M") %></time>更新</div>>
              <% end %>
            </div>
+          </section>
         </div>
-      </section>
     </div>
   </div>
 </div>

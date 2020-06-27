@@ -5,6 +5,7 @@ class ArticlesController < ApplicationController
 
 	def show
 		@article = Article.find(params[:id])
+		@articles = Article.all
 		@comment = Comment.new
 		@article_comments = @article.comments
 		@user = User.find_by(id: @article.user_id)
@@ -39,6 +40,10 @@ class ArticlesController < ApplicationController
 		@article = Article.find(params[:id])
 		@article.destroy
 		redirect_to article_path(article), notice: "記事を削除しました。"
+	end
+
+	def bookmarks
+    	@articles = current_user.bookmark_articles
 	end
 
 	def confirm
