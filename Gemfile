@@ -75,10 +75,11 @@ gem 'carrierwave'
 gem "gmaps4rails"
 gem "geocoder"
 
-
-
-gem 'dotenv-rails'
 gem 'acts-as-taggable-on', '~> 6.0'
 gem 'gimei'
 
-
+# デプロイ
+gem 'dotenv-rails'
+group :production do
+  gem 'mysql2'
+end
