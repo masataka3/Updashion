@@ -1,7 +1,4 @@
 <div class="body">
-  <div class="flash">
-  	<%= flash[:notice] %>
-  </div>
   <% if @article.errors.any? %>
   <div class="alert alert-warning">
      <ul>error
@@ -11,15 +8,14 @@
     </ul>
   </div>
   <% end %>
+
   <div class="container"style="margin: 0 auto">
-    <div>
-    <div style="display: inline-block;">
-      <div>
+    <div class="col-xs-3 ">
+      <div style="display: inline-block;">
           <div >
             <%= attachment_image_tag @user, :profile_image ,size:'32x32',fallback: "5.png"%>
           </div>
       </div>
-    </div>
       <div style="display: inline-block;margin-bottom: 30px">
         <%=link_to user_path(@user) do %>
         <%= @user.name %>さん
@@ -33,61 +29,53 @@
         <%= link_to 'フォローする', user_relationships_path(@user.id), method: :post, class: "btn btn-success" %>
       <% end %>
       <% end %>
-    </div>
-
-    <div style="display: inline-block;">
+      <div style="display: inline-block;">
+        <div >
+          <%= attachment_image_tag @article, :image ,size:'300x300',fallback: "5.png"%>
+        </div>
+      </div>
       <div>
-          <div >
-            <%= attachment_image_tag @article, :image ,size:'300x300',fallback: "5.png"%>
-          </div>
-      </div>
-    </div>
-    <div class="columns is-centered"style="display: inline-block;margin-left:60px;">
-      <h3 class="title is-4"><%= @article.title %></h3>
-      <div class="content">
-        <p>作り方</p>
-        <div><%= simple_format @article.body %></div>
-      </div>
-            <% @article.tag_list.each do |article| %>
-              <span style="background-color: #e9e9e9; border-radius: 5px;"><%= article %></span>
-            <% end %>
-    </div>
-        <div>
-          <div class="article_<%= @article.id %>">
-            <%= render 'like', article: @article %>
-          </div>
-
-          <div>
-            <%= render 'bookmark', article: @article %>
-          </div>
-
-
-            <% if @article.user.id == current_user.id %>
-              <div style="display: inline-block;"> <%= link_to "編集画面へ", edit_article_path(@article), class: "button is-success" %></div>
-              <div style="display: inline-block;"><%= link_to "Destroy", article_path(@article.id), method: :delete, "data-confirm"=> "本当に削除してもよろしいですか？", class: "btn-sm btn-danger"%></div>
-            <% end %>
-          </div>
-          <div class="field">
-          <%= form_for [@article, @comment] do |f| %>
-              <%= f.text_field :comment,autofocus: true, size:30%>
-              <%= f.submit "送信する"%>
+        <span class="article_<%= @article.id %>">
+          <%= render 'like', article: @article %>
+          <%= render 'bookmark', article: @article %>
+        </span>
+          <% if @article.user.id == current_user.id %>
+            <div style="display: inline-block;"> <%= link_to "編集画面へ", edit_article_path(@article), class: 'btn-sm btn-primary' %></div>
+            <div style="display: inline-block;"><%= link_to "Destroy", article_path(@article.id), method: :delete, "data-confirm"=> "本当に削除してもよろしいですか？", class: "btn-sm btn-danger"%></div>
           <% end %>
-          </div>
-          <div>
-          <h2>コメント一覧</h2>
+        </div>
+        <div class="field">
+          <%= form_for [@article, @comment] do |f| %>
+            <%= f.text_field :comment,autofocus: true, size:40%>
+            <%= f.submit "送信する", class: 'btn btn-success ' %>
+          <% end %>
+        </div>
+
+        <h2>コメント一覧</h2>
           <% @article.comments.each do |comment| %>
-          <table class="comment">
-            <tr>
-              <th class="comment-author clearfix">
-                <%= comment.user.name %>さん
-              </th>
-            </tr>
-                  <div>
-                      <span class="comment-date"><%= comment.created_at.strftime('%Y/%m/%d') %></span>
-                  </div>
-                  <th class="comment-entry"><%= comment.comment %></th>
-              </div>
+        <table class="comment">
+          <tr>
+            <th class="comment-author clearfix">
+              <%= comment.user.name %>さん
+            </th>
+          </tr>
+          <div>
+            <span class="comment-date"><%= comment.created_at.strftime('%Y/%m/%d') %></span>
+          </div>
+            <th class="comment-entry"><%= comment.comment %></th>
           </table>
           <% end %>
         </div>
+      <div class="col-xs-9 ">
+        <div class="columns is-centered"style="display: inline-block;margin-left:60px;">
+        <h3 class="title is-4">『<%= @article.title %>』</h3>
+        <div class="content" style="margin-top:30px;">
+          <div><%= simple_format @article.body %></div>
+        </div>
+          <% @article.tag_list.each do |article| %>
+            <span style="background-color: #e9e9e9; border-radius: 5px;"><%= article %></span>
+          <% end %>
+        </div>
+      </div>
+    </div>
   </div>

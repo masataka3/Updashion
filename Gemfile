@@ -77,7 +77,9 @@ gem "geocoder"
 
 gem 'acts-as-taggable-on', '~> 6.0'
 gem 'gimei'
-
+#サマーノート
+#gem 'summernote-rails', '~> 0.8.10.0'
+#gem 'simple_form', '~> 3.5.1'
 # デプロイ
 gem 'dotenv-rails'
 group :production do

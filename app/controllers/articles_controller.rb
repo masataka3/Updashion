@@ -17,7 +17,7 @@ class ArticlesController < ApplicationController
 		if  @article.save
 		    redirect_to  article_path(@article), notice: "新規投稿しました。"
 		else
-		   redirect_to article_path(@article)
+		   render "new"
 		end
 	end
 

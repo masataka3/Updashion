@@ -7,23 +7,10 @@ class SubMaterialsController < ApplicationController
   	@sub_material = SubMaterial.find(params[:id])
   end
 
-  def new
-  	@sub_material = SubMaterial.new
-  end
-
-   def create
-    @sub_material = SubMaterial.new(sub_material_params)
-    @sub_material.save
-   end
-
-  def edit
-    @sub_material = SubMaterial.find(params[:id])
-  end
-
-  def delete
-    @sub_material = SubMaterial.find(params[:id])
-    @sub_material.destory
-    redirect_to sub_materials_path
+  def search
+    method = params[:search_method]
+    word = params[:search_word]
+    @sub_materials = SubMaterial.search(method,title)
   end
 
   private

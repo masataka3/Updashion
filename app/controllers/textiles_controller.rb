@@ -7,25 +7,12 @@ class TextilesController < ApplicationController
   	@textile = Textile.find(params[:id])
   end
 
-  def new
-  	@textile = Textile.new
-
+   def search
+    method = params[:search_method]
+    word = params[:search_word]
+    @textile = Textile.search(method,title)
   end
 
-  def create
-  	@textile = Textile.new(textile_params)
-  	@textile.save
-  end
-
-  def edit
-  	@textile = Textile.find(params[:id])
-  end
-
-  def delete
-  	@textile = Textile.find(params[:id])
-  	@textile.destory
-  	redirect_to textiles_path
-  end
 
   private
   def textile_params

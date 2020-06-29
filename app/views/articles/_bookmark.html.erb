@@ -1,9 +1,9 @@
 <% if article.bookmark_by?(current_user) %>
-	<div style='display: inline; float: right;'>
-	    <%= link_to "", article_bookmarks_path(article.id), method: :post, id: :"js-bookmark-button-for-article-#{article.id}" , class: "glyphicon glyphicon-bookmark"%>
+	<div style='display: inline;'>
+	    <%= link_to "", article_bookmarks_path(article.id), method: :post, id: :"js-bookmark-button-for-article-#{article.id}" , class: "glyphicon glyphicon-bookmark fa-lg"%>
 	  </div>
 <% else %>
-    <div style='display: inline; float: right;'>
-	    <%= link_to "", article_bookmarks_path(article.id), method: :post, id: :"js-bookmark-button-for-article-#{article.id}" , class: "glyphicon glyphicon-bookmark"%>
+    <div style='display: inline;'>
+	    <%= link_to "", article_bookmarks_path(article.id), method: :post, id: :"js-bookmark-button-for-article-#{article.id}" , class: "glyphicon glyphicon-bookmark fa-lg"%>
 	  </div>
 <% end %>

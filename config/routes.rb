@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   }
   root 'home#top'
   get 'home/about'
+  get "search" => "search#search"
   resources :users do
   	resource :relationships, only: [:create, :destroy]
     get 'follows' => 'relationships#follower', as: 'follows'
@@ -22,11 +23,10 @@ Rails.application.routes.draw do
     get :bookmarks, on: :collection
   end
 
-  resources :categorys
-  resources :historys
-  resources :textiles
-  resources :shops
-  resources :sub_materials
+  resources :historys, only: [:index, :show]
+  resources :textiles, only: [:index, :show]
+  resources :shops, only: [:index, :show]
+  resources :sub_materials, only: [:index, :show]
 
   get 'inquiry/index'
   post 'inquiry/confirm'

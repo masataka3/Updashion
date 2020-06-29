@@ -16,14 +16,14 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
- /*@font-face {
+ @font-face {
   font-family: 'Bluesky';
-  src: url('ipam.ttc') format('truetype');
-}*/
+  src: url('NotoSansJP-Light.otf') format('truetype');
+}
 
  header{
 	height: 120px;
-  background-color:#87CEEB;
+  background-color:#dfefff;
 		 .navbar-left{
 		    span{
 			font-size:20px;
@@ -37,7 +37,7 @@
 }
 
 footer {
-background-color:#87CEEB;
+background-color:#dfefff;
 }
 
 
@@ -53,6 +53,6 @@ background-color:#87CEEB;
 }
 
 
-/*header,nav,li,h1,h2,h3,h4,th,td,p,footer {
+header,nav,li,h1,h2,h3,h4,th,td,p,footer {
     font-family: Bluesky, 'Bluesky', Courier, "Segoe Print", sans-serif;
-}*/
+}

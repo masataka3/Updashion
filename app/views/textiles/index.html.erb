@@ -1,30 +1,42 @@
-
-<div class="container">
-	<div class="row">
-		<%= form_tag textiles_path, :method => 'get' do %>
-		  <p>
-		    <%= text_field_tag :search, params[:search] %>
-		    <%= submit_tag "Search", :name => nil %>
-		  </p>
-		<% end %>
-　　　　	 <div class="col-xs-9">
-			 <table class="table table-hover table-inverse">
-				<tbody>
-					<%= @textiles.each do |textile|%>
-					<tr>
-						<td>　
-							<% if textile.image? %>
-							　　<%= image_tag textile.image.url, size: "60x60"%>
-							<% end %>
-						</td>
-						<td><%= textile.title %></td>
-						<td><%= textile.body %></td>
-						<td><%= link_to "詳細", textile_path(textile) %>
-					</tr>
-					<% end %>
-				</tbody>
-			</table>
-		</div>
-	</div>
+<style>
+.sampleRow > div {
+  min-height: 6em;
+  border : dashed 4px #dfefff;
+  margin: 0 auto;
+}
+h2 {
+  background: #dfefff;
+  box-shadow: 0px 0px 0px 5px #dfefff;
+  border: dashed 2px white;
+  padding: 0.2em 0.5em;
+  width: 140px;
+}
+</style>
+<div class="body">
+  <div class="container">
+    <div>
+      <div style="float: right;" >
+        <%= form_tag(search_path, :method => 'get') do %>
+            <%= select_tag 'option', options_for_select({shop: 1, sub_material: 2,textile: 3, history: 4},1), include_blank: true%>
+            <%= text_field_tag :search %>
+          <%= submit_tag 'Search', :name => nil %>
+        <% end %>
+      </div>
+      <h2>Textiles</h2>
+    </div>
+    <div class="row sampleRow">
+      <%= @textiles.each do |textile|%>
+      <div class="col-md-12"  style="width: 310px; padding: 10px; margin: 20px;">
+        <div>
+          <% if textile.image? %>
+			<%= image_tag textile.image.url, size: "280x280"%>
+		　<% end %>
+        </div>
+        <div><span style="margin-right: 20px;font-size: 24px;">shop</span>  <%= textile.title %></div>
+        <div><%= textile.body %></div>
+        <div><%= link_to "詳細", textile_path(textile) %></div>
+      </div>
+    <% end %>
+    </div>
+  </div>
 </div>
-

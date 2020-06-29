@@ -1,13 +1,35 @@
- <div>
-      <div>
-          <div>
-             <%= image_tag @textile.image.url, size: "80x80"%>
-          </div>
+<style>
+.sampleRow > div {
+  min-height: 6em;
+  border : dashed 4px #dfefff;
+}
+h2 {
+  background: #dfefff;
+  box-shadow: 0px 0px 0px 5px #dfefff;
+  border: dashed 2px white;
+  padding: 0.2em 0.5em;
+  width: 200px;
+  margin-bottom: 50px;
+}
+</style>
+
+<div class="body">
+  <div class="container">
+    <h2>Textile詳細</h2>
+    <div class="row">
+      <div class="col-xs-3">
+        <div>
+           <%= image_tag @textile.image.url, size: "300x300"%>
+        </div>
       </div>
-</div>
-<div class="columns is-centered"style="display: inline-block;margin-left:60px;">
-    <h3 class="title is-4"><%= @textile.title %></h3>
-  <div class="content">
-  <p>作り方</p>
-  <div><%= simple_format @textile.body %></div>
+      <div class="col-xs-9">
+        <div class="columns is-centered"style="display: inline-block;margin-left:60px;">
+          <div class="content">
+            <h3><%= @textile.title %></h3>
+          <div><%= simple_format @textile.body %></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

@@ -1,35 +1,54 @@
-<div>
-      <div>
-          <div>
-             <%= image_tag @shop.image.url, size: "80x80"%>
-          </div>
+<style>
+.sampleRow > div {
+  min-height: 6em;
+  border : dashed 4px #dfefff;
+}
+h2 {
+  background: #dfefff;
+  box-shadow: 0px 0px 0px 5px #dfefff;
+  border: dashed 2px white;
+  padding: 0.2em 0.5em;
+  width: 180px;
+  margin-bottom: 50px;
+}
+</style>
+
+<div class="body">
+  <div class="container">
+    <h2>Shop詳細</h2>
+    <div class="row">
+      <div class="col-xs-3">
+        <div>
+           <%= image_tag @shop.image.url, size: "300x300"%>
+        </div>
       </div>
+      <div class="col-xs-9">
+        <div class="columns is-centered"style="display: inline-block;margin-left:60px;">
+          <div class="content">
+            <h3><%= @shop.title %></h3>
+          <div><%= simple_format @shop.body %></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <h2>お店情報</h2>
+    <p>address</p>
+    <p><%= @shop.address %></p>
+    <div id="map" style='width: 400px; height: 400px;'></div>
+    <script type="text/javascript">
+      handler = Gmaps.build('Google');
+      handler.buildMap({ provider: { scrollwheel: false }, internal: {id: 'map'}}, function(){
+        markers = handler.addMarkers([
+          {
+            "lat": <%= @shop.latitude %>,
+            "lng": <%= @shop.longitude %>,
+  		  "infowindow": '<p><%= @shop.title %></p><p><%= @shop.address %></p><p><%= link_to "Googleマップで見る" ,"https://maps.google.co.jp/maps?q=loc:#{@shop.latitude},#{@shop.longitude}&iwloc=J",target: "_blank" %></p>'
+          }
+        ]);
+        handler.bounds.extendWith(markers);
+        handler.fitMapToBounds();
+        handler.getMap().setZoom(17);
+      });
+    </script>
+  </div>
 </div>
-<div class="columns is-centered"style="display: inline-block;margin-left:60px;">
-    <h3 class="title is-4"><%= @shop.title %></h3>
-  <div class="content">
-  <p>作り方</p>
-  <div><%= simple_format @shop.body %></div>
-</div>
-
-
-
-
-
-<div id="map" style='width: 100%; height: 500px;'></div>
-
-  <script type="text/javascript">
-    handler = Gmaps.build('Google');
-    handler.buildMap({ provider: { scrollwheel: false }, internal: {id: 'map'}}, function(){
-      markers = handler.addMarkers([
-        {
-          "lat": <%= @shop.latitude %>,
-          "lng": <%= @shop.longitude %>,
-		  "infowindow": '<p><%= @shop.title %></p><p><%= @shop.address %></p><p><%= link_to "Googleマップで見る" ,"https://maps.google.co.jp/maps?q=loc:#{@shop.latitude},#{@shop.longitude}&iwloc=J",target: "_blank" %></p>'
-        }
-      ]);
-      handler.bounds.extendWith(markers);
-      handler.fitMapToBounds();
-      handler.getMap().setZoom(17);
-    });
-  </script>

@@ -1,0 +1,66 @@
+<style>
+  h2 {
+   background: #dfefff;
+   box-shadow: 0px 0px 0px 5px #dfefff;
+   border: dashed 2px white;
+   padding: 0.2em 0.5em;
+   width: 180px;
+   margin: 20px auto 50PX
+}
+</style>
+
+<div class ="body">
+<div class="container">
+    <div class="row">
+        <h2>検索結果</h2>
+        <% if @shop_or_sub_material_or_textile_or_history == "1"%>
+            <div>
+                <% @shops.each do |shop| %>
+                <div>
+                  <% if shop.image? %>
+                    <%= image_tag shop.image.url, size: "100x100"%>
+                  <% end %>
+                </div>
+                    <div><%= shop.title %></div>
+                    <div><%= link_to "詳細", shop_path(shop)%></div>
+                <% end %>
+            </div>
+
+        <% elsif @shop_or_sub_material_or_textile_or_history == "2" %>
+            <table>
+            <% @Sub_materials.each do |sub| %>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th><%= sub.title %></th>
+                    </tr>
+                </thead>
+            <% end %>
+            </table>
+        <% elsif @shop_or_sub_material_or_textile_or_history == "3" %>
+            <table>
+            <% @textiles.each do |textile| %>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th><%= textile.title %></th>
+                    </tr>
+                </thead>
+            <% end %>
+            </table>
+        <% elsif @shop_or_sub_material_or_textile_or_history == "4" %>
+            <table>
+            <% @historys.each do |history| %>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th><%= history.title %></th>
+                    </tr>
+                </thead>
+            <% end %>
+            </table>
+        <% else %>
+        <% end %>
+        </div>
+    </div>
+</div>

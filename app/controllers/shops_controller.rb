@@ -7,6 +7,12 @@ class ShopsController < ApplicationController
   	@shop = Shop.find(params[:id])
   end
 
+  def search
+    method = params[:search_method]
+    word = params[:search_word]
+    @shops = Shop.search(method,title)
+  end
+
   private
   def shop_params
   	params.require(:shop).permit(:title, :body, :image, :address, :latitude, :longitude)

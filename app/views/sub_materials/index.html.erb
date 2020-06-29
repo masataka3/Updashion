@@ -1,23 +1,43 @@
+<style>
+.sampleRow > div {
+  min-height: 6em;
+  border : dashed 4px #dfefff;
+  margin: 0 auto;
+}
+h2 {
+  background: #dfefff;
+  box-shadow: 0px 0px 0px 5px #dfefff;
+  border: dashed 2px white;
+  padding: 0.2em 0.5em;
+  width: 220px;
+}
+</style>
 
-<div class="container">
-	<div class="row">
-　　　　	 <div class="col-xs-9">
-			 <table class="table table-hover table-inverse">
-				<tbody>
-
-					<tr>
-						<%= @sub_materials.each do |material|%>
-						<td><
-							<% if material.image? %>
-							　　<%= image_tag material.image.url %>
-							<% end %></td>
-						<td><%= material.title %></td>
-						<td><%= material.body %></td>
-						<% end %>
-					</tr>
-
-				</tbody>
-			</table>
-		</div>
-	</div>
+<div class="body">
+  <div class="container">
+    <div>
+      <div style="float: right;">
+        <%= form_tag(search_path, :method => 'get') do %>
+        <%= select_tag 'option', options_for_select({shop: 1, sub_material: 2,textile: 3, history: 4},1), include_blank: true%>
+          <%= text_field_tag :search %>
+        <%= submit_tag 'Search', :name => nil %>
+      <% end %>
+      </div>
+      <h2>SubMaterials</h2>
+    </div>
+    <div class="row sampleRow">
+      <%= @sub_materials.each do |material|%>
+      <div class="col-md-12"  style="width: 310px; padding: 10px; margin: 20px;">
+        <div>
+          <% if material.image? %>
+			     <%= image_tag material.image.url, size: "280x280"%>
+		　     <% end %>
+        </div>
+        <div><span style="margin-right: 20px;font-size: 24px;"></span>  <%= material.title %></div>
+        <div><%= material.body %></div>
+        <div><%= link_to "詳細", sub_material_path(sub_material) %></div>
+      </div>
+    <% end %>
+    </div>
+  </div>
 </div>

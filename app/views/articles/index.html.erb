@@ -1,37 +1,46 @@
 <style>
-  .container-article {
+.sampleRow > div {
+  min-height: 6em;
+  border : dashed 4px #dfefff;
   margin: 0 auto;
-  padding: 5px;
-  width: 90%;
-  column-count: 3;
-  column-gap: 0;
+}
+.hover {
+  border-radius: 50%;
+  transition: all 0.6s ease 0s;
+}
+.hover:hover {
+  cursor: pointer;
+  transform: scale(1.1, 1.1);
+}
+h2 {
+  background: #dfefff;
+  box-shadow: 0px 0px 0px 5px #dfefff;
+  border: dashed 2px white;
+  padding: 0.2em 0.5em;
+  width: 160px;
 }
 </style>
 
 <div class="body">
-  <div class="container-article">
-    <div class='row'>
-          <div style="border : 1px;">
-          <section class="section">
-           <div>
-            <% @articles.each do |article| %>
-               <div>
-                <%= link_to article_path(article) do %>
-                  <%= attachment_image_tag article, :image, fallback: "5.png",size: "200x200"%>
-                <% end %>
-                </div>
-               <div class="noborder">
-                <%= link_to article_path(article), class: "panel-block" do %>
-                  <span class="panel-icon">
-                    <i class="fas fa-book" aria-hidden="true"></i>
-                  </span>この作り方を見る
-                <% end %>
-              </div>
-             <div class="noborder"><%= article.title %></div>
-               <div class="noborder"><time><%= article.updated_at.strftime("%Y-%m-%d %H:%M") %></time>更新</div>
-             <% end %>
-          </section>
+  <div class="container">
+    <h2>投稿一覧</h2>
+    <div class="row sampleRow">
+      <% @articles.each do |article| %>
+      <div class="col-md-12"  style="width: 340px; padding: 20px; margin: 20px;">
+        <div >
+          <%= link_to article_path(article) do %>
+            <%= attachment_image_tag article, :image, fallback: "5.png",size: "280x280",class: "hover"%>
+          <% end %>
         </div>
+        <div style ="margin-top:20px"><%= article.title %></div>
+          <%= link_to article_path(article), class: "panel-block" do %>
+            <span class="panel-icon">
+              <i class="fas fa-book" aria-hidden="true"></i>
+            </span>この作り方を見る
+          <% end %>
+        <div class="noborder"><time><%= article.updated_at.strftime("%Y-%m-%d %H:%M") %></time>更新</div>
+      </div>
+      <% end %>
     </div>
   </div>
 </div>

@@ -1,2 +1,43 @@
-<h1>Historys#index</h1>
-<p>Find me in app/views/historys/index.html.erb</p>
+<style>
+.sampleRow > div {
+  min-height: 6em;
+  border : dashed 4px #dfefff;
+  margin: 0 auto;
+}
+h2 {
+  background: #dfefff;
+  box-shadow: 0px 0px 0px 5px #dfefff;
+  border: dashed 2px white;
+  padding: 0.2em 0.5em;
+  width: 150px;
+}
+</style>
+
+<div class="body">
+  <div class="container">
+    <div>
+      <div style="float: right;" >
+        <%= form_tag(search_path, :method => 'get') do %>
+          <%= select_tag 'option', options_for_select({shop: 1, sub_material: 2,textile: 3, history: 4},1), include_blank: true%>
+          <%= text_field_tag :search %>
+        <%= submit_tag 'Search', :name => nil %>
+        <% end %>
+      </div>
+      <h2>Historys</h2>
+    </div>
+    <div class="row sampleRow">
+      <%= @historys.each do |history|%>
+      <div class="col-md-12"  style="width: 310px; padding: 10px; margin: 20px;">
+        <div>
+          <% if history.image? %>
+            <%= image_tag history.image.url ,size: "280x280"%>
+          <% end %>
+        </div>
+        <div><span style="margin-right: 20px;font-size: 24px;">shop</span>  <%= history.title %></div>
+        <div><%= history.body %></div>
+        <div><%= link_to "詳細", history_path(history) %></div>
+      </div>
+    <% end %>
+    </div>
+  </div>
+</div>
