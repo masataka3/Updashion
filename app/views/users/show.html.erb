@@ -48,6 +48,9 @@ h2 {
       </div>
       </div>
     </div>
+    <div class="col-md-3 col-md-pull-9">
+      <%= render 'info', user: @user,now: ''%>
+    </div>
     <div class="col-md-9 col-md-push-3">
       <h2 style="width: 250px;">お気に入り記事</h2>
       <div class="row sampleRow">
@@ -67,9 +70,6 @@ h2 {
           </div>
         </div>
       </div>
-    </div>
-    <div class="col-md-3 col-md-pull-9">
-      <%= render 'info', user: @user,now: ''%>
     </div>
   </div>
   </div>
