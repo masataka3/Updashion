@@ -2,7 +2,8 @@
 lock "~> 3.14.1"
 
 set :application, "Updashion"
-set :repo_url, "git@github.com:masataka3/Updashion.git "
+set :repo_url, "git@github.com:masataka3/Updashion.git"
+
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
