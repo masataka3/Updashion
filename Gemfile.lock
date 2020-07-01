@@ -403,6 +403,7 @@ DEPENDENCIES
   gmaps4rails
   jbuilder (~> 2.5)
   jquery-rails
+  kaminari (~> 1.2.1)
   listen (>= 3.0.5, < 3.2)
   mysql2
   pry-byebug

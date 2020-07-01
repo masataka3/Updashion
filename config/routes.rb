@@ -17,7 +17,7 @@ Rails.application.routes.draw do
    put "/users/:id/hide" => "users#hide", as: 'users_hide'
 
   resources :articles do
-    resources :comments, only: [:create, :destroy]
+    resource :comments, only: [:create, :destroy]
     resource :favorites, only: [:create, :destroy]
     resource :bookmarks, only: [:create, :destroy]
     resource :tags, only: [:index]

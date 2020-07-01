@@ -1,6 +1,6 @@
 class SubMaterialsController < ApplicationController
   def index
-  	@sub_materials = SubMaterial.all
+  	@sub_materials = SubMaterial.page(params[:page]).reverse_order
   end
 
   def show

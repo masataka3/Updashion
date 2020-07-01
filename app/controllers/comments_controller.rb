@@ -1,15 +1,15 @@
 class CommentsController < ApplicationController
 	def create
-		article = Article.find(params[:article_id])
-		comment = current_user.comments.new(comment_params)
-		comment.article_id = article.id
-		comment.save
-		redirect_back(fallback_location: root_path)
+		@article = Article.find(params[:article_id])
+		@comment = current_user.comments.new(comment_params)
+		@comment.article_id = @article.id
+		@comment.save
 	end
 
 	def destroy
-		Comment.find_by(id: params[:id], article_id: params[:article_id]).destroy
-		redirect_back(fallback_location: root_path)
+		@comment = Comment.find(params[:article_id])
+		@article = @comment.article
+		@comment.destroy
     end
 
     private

@@ -48,26 +48,17 @@
           <% end %>
         </div>
         <div class="field">
-          <%= form_for [@article, @comment] do |f| %>
-            <%= f.text_field :comment,autofocus: true, size:40%>
+          <%= form_with model: [@article, @comment], data: {remote: true} do |f| %>
+            <%= f.text_area :comment,autofocus: true, size:40%>
             <%= f.submit "送信する", class: 'btn btn-success ' %>
           <% end %>
         </div>
 
         <h2>コメント一覧</h2>
-          <% @article.comments.each do |comment| %>
-        <table border=1 style="margin-bottom: 20px; border: dashed 3px #dfefff; padding: 20px;">
-          <tr>
-            <th class="comment-author clearfix">
-              <span>from </span><%= comment.user.name %>さん
-            </th>
-          </tr>
-            <th class="comment-entry"><%= comment.comment %></th>
-            <div>
-            <span class="comment-date"><%= comment.created_at.strftime('%Y/%m/%d') %></span>
-          </div>
-          </table>
-          <% end %>
+        <table class="show-tb comment_<%= @article.id %>">
+            <%= render 'comment_area', comments: @article.comments %>
+        </table>
+          
         </div>
       <div class="col-xs-9 ">
         <div class="columns is-centered"style="display: inline-block;margin-left:60px;">

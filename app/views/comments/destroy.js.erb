@@ -1,0 +1,1 @@
+$(".comment_<%= @article.id %>").html("<%= j(render 'articles/comment_area',  comments: @article.comments ) %>")

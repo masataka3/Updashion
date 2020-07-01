@@ -1,6 +1,6 @@
 class HistorysController < ApplicationController
   def index
-  	@historys = History.all
+  	@historys = History.page(params[:page]).reverse_order
   end
 
   def show

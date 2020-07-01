@@ -1,6 +1,6 @@
 class TextilesController < ApplicationController
   def index
-  	@textiles = Textile.all
+  	@textiles = Textile.page(params[:page]).reverse_order
   end
 
   def show
