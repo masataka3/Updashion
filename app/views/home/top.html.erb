@@ -39,16 +39,15 @@
     </div>
     <div class="col-md-3" style="margin-bottom:100px">
       <div class="sub-title" style="margin:130px auto;">
-        <h3>あなたの作りたい<br>
-        を刺激する</h3>
+        <p class="text-anime3">Updashion</p>
+        <h3 class="text-anime3">『あなたの作りたい』</h3>
+        <h3 style="text-align: center;">を刺激する</h3>
       </div>
-      <div class="sub-title" style=" margin:10px auto;">
-        <span><%= link_to '会員登録して始める',new_user_registration_path, class: "btn btn-outline-info col-xs-8 col-xs-offset-1" %></span>
-    </div>
+      <div class="btn-stitch"><%= link_to '会員登録して始める',new_user_registration_path  %></div>
    </div>
 
    <div class="text-center" style="width:60%; margin: 0 auto; ">
-    <h1 style="margin: 50px; display: inline-block; border-bottom: 5px solid black ">Updashionとは?</h1>
+    <h1 style="margin: 50px; display: inline-block; border-bottom: dashed 5px #dfefff;padding-bottom: 10px;">Updashionとは?</h1>
     <h2 style="margin-bottom:30px;">『作るを簡単に　作るにこだわりを持って』</h2>
     このサイトは洋服のディテールの作り方などを知れるサイトです。<br>
       また服の歴史や、オススメの生地屋さんなどを知れ<br>
@@ -90,3 +89,42 @@
   </div>
  </div>
 </div>
+
+<style>
+.btn-stitch {
+  padding: 0.5em 1em;
+  text-decoration: none;
+  background: #dfefff ;
+  color: #FFF;
+  border-radius: 4px;
+  box-shadow: 0px 0px 0px 5px #dfefff;
+  border: dashed 4px #FFF;
+  margin :0 auto;
+  text-align: center;
+}
+
+.btn-stitch:hover {
+  border: dotted 1px #FFF;
+}
+/*テキスト アニメーション*/
+.text-anime3{
+  animation: text_animation3 3s;
+}
+
+@keyframes text_animation3{
+  0%{
+    letter-spacing: -0.5em;
+    transform: translateY(-1000px);
+  }
+
+  50%{
+    letter-spacing: -0.5em;
+    transform: none;
+  }
+
+  100%{
+    letter-spacing: 0;
+  }
+}
+</style>
+

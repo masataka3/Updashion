@@ -28,7 +28,7 @@ h2 {
       <div class="row sampleRow">
       <%= @shops.each do |shop|%>
       <div class="col-md-12"  style="width: 310px; padding: 10px; margin: 20px;">
-        <div>
+        <div class="box1">
           <% if shop.image? %>
             <%= image_tag shop.image.url, size: "280x280"%>
           <% end %>

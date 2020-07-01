@@ -13,9 +13,13 @@ class ArticlesController < ApplicationController
 
 	def create
 		@article = Article.new(article_params)
+		@article[:created_by] = current_user.id
+		@article[:updated_by] = current_user.id
 			@article.user = current_user
 		if  @article.save
+			# binding.pry
 		    redirect_to  article_path(@article), notice: "新規投稿しました。"
+
 		else
 		   render "new"
 		end
@@ -23,14 +27,20 @@ class ArticlesController < ApplicationController
 
 	def edit
 		@article = Article.find(params[:id])
-  end
+		if @article.user.id != current_user.id
+      	redirect_to articles_path
+  		end
+ 	 end
 
 	def update
 		@article = Article.find(params[:id])
+		@article[:updated_by] = current_user.id
 		if  @article.update(article_params)
 		    redirect_to article_path(@article), notice: "記事を更新しました。"
-	end
-  end
+		else
+			render :edit
+		end
+  	end
 
 	def new
 		@article = Article.new
@@ -39,7 +49,7 @@ class ArticlesController < ApplicationController
 	def destroy
 		@article = Article.find(params[:id])
 		@article.destroy
-		redirect_to article_path(article), notice: "記事を削除しました。"
+		redirect_to articles_path, notice: "記事を削除しました。"
 	end
 
 	def bookmarks

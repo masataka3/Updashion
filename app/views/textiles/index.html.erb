@@ -27,10 +27,10 @@ h2 {
     <div class="row sampleRow">
       <%= @textiles.each do |textile|%>
       <div class="col-md-12"  style="width: 310px; padding: 10px; margin: 20px;">
-        <div>
+        <div class = "box1" >
           <% if textile.image? %>
-			<%= image_tag textile.image.url, size: "280x280"%>
-		　<% end %>
+			      <%= image_tag textile.image.url, size: "280x280" %>
+		　     <% end %>
         </div>
         <div><span style="margin-right: 20px;font-size: 24px;">shop</span>  <%= textile.title %></div>
         <div><%= textile.body %></div>

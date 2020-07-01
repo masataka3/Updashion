@@ -26,7 +26,7 @@
 
         <%= form_for (@article) do |f| %>
           <div class="field"style="text-align: center;margin-bottom: 30px;">
-           <div> <%= f.label :image %></div>
+           <div> <%= f.label :iconimage %></div>
             <%= f.attachment_field :image, class: "user_image" %>
             <div id="preview"></div>
           </div>
@@ -34,33 +34,33 @@
             <div class="field"><%= f.label :タイトル %></div>
             <%= f.text_field :title , class: "title",size:75,placeholder: "作品のタイトルを入れてください" %>
           </div>
-          <!-- サマーノートカラム入れ方わからない -->
-          <div id="summernote"></div>
-          <script>
-            $('#summernote').summernote({
-              placeholder: 'Hello stand alone ui',
-              tabsize: 2,
-              height: 120,
-              toolbar: [
-                ['style', ['style']],
-                ['font', ['bold', 'underline', 'clear']],
-                ['color', ['color']],
-                ['para', ['ul', 'ol', 'paragraph']],
-                ['table', ['table']],
-                ['insert', ['link', 'picture', 'video']],
-                ['view', ['fullscreen', 'codeview', 'help']]
-              ]
-            });
-          </script>
+
           <div class="field"style="text-align: center;margin-bottom: 30px;">
             <div class="field"style="text-align: center;"><%= f.label :内容 %></div>
-            <%= f.text_area :body, class: "body", size: "20x10", class: "form-control",placeholder: "作品の内容を入れてください"%>
+            <%= f.text_area :body , 'data-provider': :summernote %>
           </div>
+
+          <div id="summernote"></div>
+          <script>
+
+            $(function () {
+              $('[data-provider="summernote"]').each(function(){
+                $(this).summernote({
+                lang: 'ja-JP',
+                height: 250,
+                fontNames: ['Helvetica', 'sans-serif', 'Arial', 'Arial Black', 'Comic Sans MS', 'Courier New'],
+                fontNamesIgnoreCheck: ['Helvetica', 'sans-serif', 'Arial', 'Arial Black', 'Comic Sans MS', 'Courier New'],
+                  });
+                })
+              })
+          </script>
+
+
           <div>
             <%= f.label :tag_list, 'タグをカンマ区切りで入力' %>
             <%= text_field_tag 'article[tag_list]', @article.tag_list, :class => "form-control" %>
           </div>
-          <div class="actions" style="text-align: center;margin-bottom: 30px;">
+          <div class="actions" style="text-align: center;margin-top: 30px;">
             <%= f.submit "投稿" , class: 'btn btn-success ' %>
           </div>
         <% end %>

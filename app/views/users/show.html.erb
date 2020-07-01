@@ -2,6 +2,7 @@
 .sampleRow > div {
   min-height: 6em;
   border : dashed 4px #dfefff;
+  padding: 30px
 }
 h2 {
   background: #dfefff;
@@ -16,61 +17,71 @@ h2 {
 <div class="body">
   <div class="container">
     <div class ="row">
-    <div class="col-md-9 col-md-push-3">
-        <h2>投稿一覧</h2>
-        <div class="row sampleRow">
-        <div>
-        <% @user.articles.each do |article| %>
-          <div class="column is-3" style="width: 200px; padding: 10px;">
-              <div class="image">
-                <%= link_to article_path(article) do %>
-                  <%= attachment_image_tag article, :image, fallback: "5.png",size: "180x180"%>
-                <% end %>
-                <%= article.title%>
-              </div>
-              <div class="content">
-                  <%= link_to article_path(article), class: "panel-block" do %>
-                      <i class="fas fa-book" aria-hidden="true"></i>この作り方を見る
+      <div class="col-md-9 col-md-push-3">
+          <h2>投稿一覧</h2>
+          <div class="row sampleRow">
+          <div style =" margin : 0 auto">
+          <% @user.articles.each do |article| %>
+            <div class="column is-3" style="width: 250px; padding: 10px;display: inline-block;margin-right: 0px;">
+                <div class="image">
+                  <%= link_to article_path(article) do %>
+                    <%= attachment_image_tag article, :image, fallback: "5.png",size: "220x220"%>
                   <% end %>
-                  <% if @user.id == current_user.id %>
-                    <%= link_to edit_article_path(article), class: "panel-block" do %>
-                        <i class="fas fa-edit"></i>この作り方を編集する
+                  <%= article.title%>
+                </div>
+                <div >
+                  <p>
+                    <%= link_to article_path(article), class: "panel-block" do %>
+                        <i class="fas fa-book" aria-hidden="true"></i>この作り方を見る
                     <% end %>
-                    <%= link_to article_path(article), method: :delete, data: {confirm: "削除しますか？"}, class: "panel-block" do %>
-                      <span class="panel-icon">
-                         <i class="fas fa-trash"></i>
-                      </span>この作り方を削除する
-                    <% end %>
-                 <% end %>
+                  </p>
+                  <p>
+                    <% if @user.id == current_user.id %>
+                      <%= link_to edit_article_path(article), class: "panel-block" do %>
+                          <i class="fas fa-edit"></i>この作り方を編集する
+                      <% end %>
+                    </p>
+                    <p>
+                      <%= link_to article_path(article), method: :delete, data: {confirm: "削除しますか？"}, class: "panel-block" do %>
+                           <i class="fas fa-trash"></i>この作り方を削除する
+                      <% end %>
+                    </p>
+                   <% end %>
+                 </div>
               </div>
-            </div>
-        <% end %>
+          <% end %>
+        </div>
+        </div>
       </div>
+      <div class="col-xs-3 col-md-pull-9">
+        <%= render 'info', user: @user,now: ''%>
       </div>
-    </div>
-    <div class="col-md-9 col-md-push-3">
-      <h2 style="width: 250px;">お気に入り記事</h2>
-      <div class="row sampleRow">
-       <div class="box">
-          <div>
-          <% @user.bookmark_articles.each do |article| %>
-            <div>
-              <%= article.title %>
-            </div>
-            <div>
-              <%= attachment_image_tag article, :image, fallback: "5.png",size: "100x100"%>
-            </div>
-            <div>
-              <%= link_to "詳細" ,article_path(article)%>
+
+      <div class="col-md-9 col-md-push-3">
+        <h2 style="width: 250px;">お気に入り記事</h2>
+        <div class="row sampleRow" style= "display: inline-block;">
+          <div style =" margin : 0 auto">
+           <% @user.bookmark_articles.each do |article| %>
+            <div class="column is-3" style="width: 250px; padding: 10px;display: inline-block;margin-right: 0px;">
+              <div class="image">
+                  <%= attachment_image_tag article, :image, fallback: "5.png",size: "200x200"%>
+              </div>
+              <div>
+                <%= article.title %>
+              </div>
+              <div>
+                <p>
+                  <%= link_to article_path(article), class: "panel-block" do %>
+                    <i class="fas fa-book" aria-hidden="true"></i>この作り方を見る
+                  <% end %>
+                </p>
+              </div>
             </div>
           <% end %>
           </div>
         </div>
       </div>
+
     </div>
-    <div class="col-md-3 col-md-pull-9">
-      <%= render 'info', user: @user,now: ''%>
-    </div>
-  </div>
   </div>
 </div>
