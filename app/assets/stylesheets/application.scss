@@ -12,7 +12,10 @@
  *
  *= require swiper
  *= require_self
+ *= require_homes
  */
+
+
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
@@ -23,7 +26,8 @@
 
  header{
 	height: 120px;
-  background-color:#dfefff;
+ 	background-color:#dfefff;
+ 	border-bottom: dashed 6px white;
 		 .navbar-left{
 		    span{
 			font-size:20px;
@@ -37,7 +41,7 @@
 }
 
 footer {
-background-color:#dfefff;
+	background-color:#dfefff;
 }
 
 
@@ -55,4 +59,25 @@ background-color:#dfefff;
 
 header,nav,li,h1,h2,h3,h4,th,td,p,footer {
     font-family: Bluesky, 'Bluesky', Courier, "Segoe Print", sans-serif;
+}
+/*スライドアニメーション textile shop  sub material hisyory 画像*/
+.box1{
+  animation: SlideIn 1.6s;
+}
+@keyframes SlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-64px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/*article index */
+.img_prev:hover {
+  cursor: pointer; 
+  opacity: 0.7;
+  transform: scale(1.01, 1.01);
 }

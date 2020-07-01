@@ -56,6 +56,7 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'
+  gem 'rspec-rails'
   gem 'capistrano'
   gem 'capistrano-rails'
   gem 'capistrano3-puma'
@@ -83,8 +84,8 @@ gem "geocoder"
 gem 'acts-as-taggable-on', '~> 6.0'
 gem 'gimei'
 #サマーノート
-#gem 'summernote-rails', '~> 0.8.10.0'
-#gem 'simple_form', '~> 3.5.1'
+gem 'summernote-rails', '~> 0.8.10.0'
+gem 'simple_form'
 # デプロイ
 gem 'dotenv-rails'
 group :production do

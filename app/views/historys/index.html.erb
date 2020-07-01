@@ -28,7 +28,7 @@ h2 {
     <div class="row sampleRow">
       <%= @historys.each do |history|%>
       <div class="col-md-12"  style="width: 310px; padding: 10px; margin: 20px;">
-        <div>
+        <div class="box1">
           <% if history.image? %>
             <%= image_tag history.image.url ,size: "280x280"%>
           <% end %>

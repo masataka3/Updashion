@@ -28,7 +28,7 @@ h2 {
     <div class="row sampleRow">
       <%= @sub_materials.each do |material|%>
       <div class="col-md-12"  style="width: 310px; padding: 10px; margin: 20px;">
-        <div>
+        <div class= "box1">
           <% if material.image? %>
 			     <%= image_tag material.image.url, size: "280x280"%>
 		　     <% end %>
