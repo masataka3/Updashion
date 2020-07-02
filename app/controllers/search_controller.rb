@@ -1,17 +1,15 @@
 class SearchController < ApplicationController
+  def search
+    @shop_or_sub_material_or_textile_or_history = params[:option]
 
-	def search
-	  	@shop_or_sub_material_or_textile_or_history = params[:option]
-		@how_search = params[:choice]
-
-		if @shop_or_sub_material_or_textile_or_history == "1"
-		   @shops = Shop.search(params[:search], @shop_or_sub_material_or_textile_or_history, @how_search)
-		elsif
-		   @sub_materials = SubMaterial.search(params[:search], @shop_or_sub_material_or_textile_or_history, @how_search)
-		elsif
-		   @textiles = Textile.search(params[:search], @shop_or_sub_material_or_textile_or_history, @how_search)
-		elsif
-		   @history = History.search(params[:search], @shop_or_sub_material_or_textile_or_history, @how_search)
-	    end
-	end
+    if @shop_or_sub_material_or_textile_or_history == "1"
+      @shops = Shop.search(params[:search], @shop_or_sub_material_or_textile_or_history)
+    elsif @shop_or_sub_material_or_textile_or_history == "2"
+      @sub_materials = SubMaterial.search(params[:search], @shop_or_sub_material_or_textile_or_history)
+    elsif @shop_or_sub_material_or_textile_or_history == "3"
+      @textiles = Textile.search(params[:search], @shop_or_sub_material_or_textile_or_history)
+    elsif @shop_or_sub_material_or_textile_or_history == "4"
+      @history = History.search(params[:search], @shop_or_sub_material_or_textile_or_history)
+       end
+  end
 end

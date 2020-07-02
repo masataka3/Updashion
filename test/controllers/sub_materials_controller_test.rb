@@ -20,5 +20,4 @@ class SubMaterialsControllerTest < ActionDispatch::IntegrationTest
     get sub_materials_edit_url
     assert_response :success
   end
-
 end

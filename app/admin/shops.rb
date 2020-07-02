@@ -1,5 +1,4 @@
 ActiveAdmin.register Shop do
-
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
@@ -30,10 +29,9 @@ ActiveAdmin.register Shop do
   #
   # or
   #
-   # permit_params do
-     # permitted = [:title, :body, :image_id]
-     # permitted << :other if params[:action] == 'create' && current_user.admin?
-     # permitted
-   # end
-
+  # permit_params do
+  # permitted = [:title, :body, :image_id]
+  # permitted << :other if params[:action] == 'create' && current_user.admin?
+  # permitted
+  # end
 end

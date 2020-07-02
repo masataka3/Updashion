@@ -24,46 +24,68 @@
     <div class ="center-block">
       <h2>新規投稿</h2>
 
-        <%= form_for (@article) do |f| %>
-          <div class="field"style="text-align: center;margin-bottom: 30px;">
-           <div> <%= f.label :iconimage %></div>
-            <%= f.attachment_field :image, class: "user_image" %>
-            <div id="preview"></div>
-          </div>
-          <div class="field"style="text-align: center;margin-bottom: 30px;">
-            <div class="field"><%= f.label :タイトル %></div>
-            <%= f.text_field :title , class: "title",size:75,placeholder: "作品のタイトルを入れてください" %>
-          </div>
+       <%= form_for (@article) do |f| %>
 
-          <div class="field"style="text-align: center;margin-bottom: 30px;">
-            <div class="field"style="text-align: center;"><%= f.label :内容 %></div>
-            <%= f.text_area :body , 'data-provider': :summernote %>
-          </div>
+        <img id="preview_image">
 
-          <div id="summernote"></div>
-          <script>
+        <div id= "item_image" style ="text-align: center;">
+          <%= attachment_image_tag @article, :image, class: "img-square", fallback: "5.png", size:"200x200" %>
+        </div>
 
-            $(function () {
-              $('[data-provider="summernote"]').each(function(){
-                $(this).summernote({
-                lang: 'ja-JP',
-                height: 250,
-                fontNames: ['Helvetica', 'sans-serif', 'Arial', 'Arial Black', 'Comic Sans MS', 'Courier New'],
-                fontNamesIgnoreCheck: ['Helvetica', 'sans-serif', 'Arial', 'Arial Black', 'Comic Sans MS', 'Courier New'],
-                  });
-                })
+
+        <div class="field"style="text-align: center;margin-bottom: 30px;">
+         <div style="text-align: center; margin:30px"><%= f.label :Topimage %></div>
+          <div><%= f.attachment_field :image, class: "user_image" %></div>
+        </div>
+        <div class="field"style="text-align: center;margin-bottom: 30px;">
+          <div class="field"><%= f.label :タイトル %></div>
+          <%= f.text_field :title , class: "title",size:75,placeholder: "作品のタイトルを入れてください" %>
+        </div>
+
+        <div class="field"style="text-align: center;margin-bottom: 30px;">
+          <div class="field"style="text-align: center;"><%= f.label :内容 %></div>
+          <%= f.text_area :body , 'data-provider': :summernote %>
+        </div>
+
+        <div id="summernote"></div>
+        <script>
+
+          // summernote
+          $(function () {
+            $('[data-provider="summernote"]').each(function(){
+              $(this).summernote({
+              lang: 'ja-JP',
+              height: 250,
+              fontNames: ['Helvetica', 'sans-serif', 'Arial', 'Arial Black', 'Comic Sans MS', 'Courier New'],
+              fontNamesIgnoreCheck: ['Helvetica', 'sans-serif', 'Arial', 'Arial Black', 'Comic Sans MS', 'Courier New'],
+                });
               })
-          </script>
+            })
+
+          // imagepreview
+          $('#article_image').on('change', function (e) {
+              var reader = new FileReader();
+              reader.onload = function (e) {
+                  $("#preview_image").attr('src', e.target.result);
+                  $("#item_image img").css('display','none');
+              }
+              reader.readAsDataURL(e.target.files[0]);
+          });
+
+        </script>
 
 
-          <div>
-            <%= f.label :tag_list, 'タグをカンマ区切りで入力' %>
-            <%= text_field_tag 'article[tag_list]', @article.tag_list, :class => "form-control" %>
-          </div>
-          <div class="actions" style="text-align: center;margin-top: 30px;">
-            <%= f.submit "投稿" , class: 'btn btn-success ' %>
-          </div>
-        <% end %>
+        <div>
+          <%= f.label :tag_list, 'タグをカンマ区切りで入力' %>
+          <%= text_field_tag 'article[tag_list]', @article.tag_list, :class => "form-control" %>
+        </div>
+        <div class="actions" style="text-align: center;margin-top: 30px;">
+          <%= f.submit "投稿" , class: 'btn btn-success ' %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
+
+
+

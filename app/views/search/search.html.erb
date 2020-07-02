@@ -10,7 +10,7 @@
 </style>
 
 <div class ="body">
-<div class="container">
+  <div class="container">
     <div class="row">
         <h2>検索結果</h2>
         <% if @shop_or_sub_material_or_textile_or_history == "1"%>
@@ -25,18 +25,18 @@
                     <div><%= link_to "詳細", shop_path(shop)%></div>
                 <% end %>
             </div>
-
         <% elsif @shop_or_sub_material_or_textile_or_history == "2" %>
-            <table>
-            <% @Sub_materials.each do |sub| %>
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th><%= sub.title %></th>
-                    </tr>
-                </thead>
-            <% end %>
-            </table>
+            <div>
+              <% @sub_materials.each do |sub| %>
+                <div>
+                  <% if sub.image? %>
+                    <%= image_tag sub.image.url, size: "100x100"%>
+                  <% end %>
+                </div>
+                <div><%= sub.title %></div>
+                <div><%= link_to "詳細", sub_material_path(sub_material)%></div>
+              <% end %>
+            </div>
         <% elsif @shop_or_sub_material_or_textile_or_history == "3" %>
             <table>
             <% @textiles.each do |textile| %>
@@ -48,18 +48,31 @@
                 </thead>
             <% end %>
             </table>
+            <% if @shop_or_sub_material_or_textile_or_history == "1"%>
+            <div>
+                <% @textiles.each do |textile| %>
+                <div>
+                  <% if textile.image? %>
+                    <%= image_tag textile.image.url, size: "100x100"%>
+                  <% end %>
+                </div>
+                    <div><%= textile.title %></div>
+                    <div><%= link_to "詳細", textile_path(textile)%></div>
+                <% end %>
+            </div>
         <% elsif @shop_or_sub_material_or_textile_or_history == "4" %>
-            <table>
+        <div>
             <% @historys.each do |history| %>
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th><%= history.title %></th>
-                    </tr>
-                </thead>
+              <div>
+                <% if history.image? %>
+                  <%= image_tag history.image.url, size: "100x100"%>
+                <% end %>
+              </div>
+                <div><%= history.title %></div>
+                <div><%= link_to "詳細", history_path(history)%></div>
             <% end %>
-            </table>
-        <% else %>
+        </div>
+        <% end %>
         <% end %>
         </div>
     </div>

@@ -32,9 +32,8 @@ h2 {
 			      <%= image_tag textile.image.url, size: "280x280" %>
 		　     <% end %>
         </div>
-        <div><span style="margin-right: 20px;font-size: 24px;">textile</span>  <%= textile.title %></div>
-        <div><%= textile.body %></div>
-        <div><%= link_to "詳細", textile_path(textile) %></div>
+        <div><h4><%= textile.title %></h4></div>
+        <div style="text-align: center"><%= link_to "詳細", textile_path(textile), class: "btn btn-success"  %></div>
       </div>
       <% end %>
     </div>

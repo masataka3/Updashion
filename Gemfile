@@ -43,6 +43,7 @@ group :development, :test do
   gem 'capistrano-rails'
   gem 'capistrano3-puma'
   gem 'capistrano-rbenv'
+  gem 'rspec-rails'
 end
 
 group :development do
@@ -60,7 +61,6 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'
-  gem 'rspec-rails'
 end
 
 gem 'devise'
@@ -74,7 +74,7 @@ gem "refile-mini_magick"
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'jquery-rails'
 gem 'pry-byebug'
-gem 'kaminari','~> 1.2.1'
+gem 'kaminari', '~> 1.2.1'
 
 # admin
 gem 'activeadmin'
@@ -84,7 +84,7 @@ gem "geocoder"
 
 gem 'acts-as-taggable-on', '~> 6.0'
 gem 'gimei'
-#サマーノート
+# サマーノート
 gem 'summernote-rails', '~> 0.8.10.0'
 gem 'simple_form'
 # デプロイ
@@ -96,3 +96,4 @@ end
 gem 'ed25519'
 gem 'bcrypt_pbkdf'
 
+gem 'rubocop-airbnb'

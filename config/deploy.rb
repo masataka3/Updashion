@@ -4,7 +4,6 @@ lock "~> 3.14.1"
 set :application, "Updashion"
 set :repo_url, "git@github.com:masataka3/Updashion.git"
 
-
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
@@ -41,5 +40,5 @@ set :repo_url, "git@github.com:masataka3/Updashion.git"
 
 set :deploy_to, "/home/ec2-user/Updashion"
 set :rbenv_ruby, '2.5.7'
-set :linked_files, %w{config/master.key .env}
+set :linked_files, %w(config/master.key .env)
 append :linked_dirs, "log", "public/system", "tmp"
