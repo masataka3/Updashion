@@ -15,5 +15,4 @@ class TextiindexControllerTest < ActionDispatch::IntegrationTest
     get textiindex_edit_url
     assert_response :success
   end
-
 end

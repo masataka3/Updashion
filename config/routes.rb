@@ -1,20 +1,19 @@
 Rails.application.routes.draw do
-
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 
-  devise_for :users,:controllers => {
+  devise_for :users, :controllers => {
     :registrations => 'users/registrations',
   }
   root 'home#top'
   get 'home/about'
   get "search" => "search#search"
-  resources :users do
-  	resource :relationships, only: [:create, :destroy]
+  resources :users, only: [:show, :edit] do
+    resource :relationships, only: [:create, :destroy]
     get 'follows' => 'relationships#follower', as: 'follows'
     get 'followers' => 'relationships#followed', as: 'followers'
   end
-   put "/users/:id/hide" => "users#hide", as: 'users_hide'
+  put "/users/:id/hide" => "users#hide", as: 'users_hide'
 
   resources :articles do
     resource :comments, only: [:create, :destroy]

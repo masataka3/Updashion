@@ -20,5 +20,4 @@ class ShopsControllerTest < ActionDispatch::IntegrationTest
     get shops_edit_url
     assert_response :success
   end
-
 end

@@ -33,9 +33,10 @@ h2 {
 			     <%= image_tag material.image.url, size: "280x280"%>
 		　     <% end %>
         </div>
-        <div><span style="margin-right: 20px;font-size: 24px;"></span>  <%= material.title %></div>
+        <div><span style="margin-right: 20px;font-size: 24px;"></span>
+          <%= material.title %></div>
         <div><%= material.body %></div>
-        <div><%= link_to "詳細", sub_material_path(sub_material) %></div>
+        <div style="text-align: center"><%= link_to "詳細", sub_material_path(sub_material)%></div>
       </div>
     <% end %>
     </div>

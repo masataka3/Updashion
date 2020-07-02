@@ -1,0 +1,22 @@
+<h2 style="width: 250px;">お気に入り記事</h2>
+<div class="row sampleRow" style= "display: inline-block;">
+  <div style =" margin : 0 auto">
+   <% user.bookmark_articles.each do |article| %>
+    <div class="column is-3" style="width: 250px; padding: 10px;display: inline-block;margin-right: 0px;">
+      <div class="image" style="margin-bottom:20px;">
+          <%= attachment_image_tag article, :image, fallback: "5.png",size: "200x200"%>
+      </div>
+      <div>
+        <h4><%= article.title %></h4>
+      </div>
+      <div>
+        <p>
+          <%= link_to article_path(article) do %>
+            <i class="fas fa-book fa-2x" aria-hidden="true"></i>
+          <% end %>
+        </p>
+      </div>
+    </div>
+  <% end %>
+  </div>
+</div>

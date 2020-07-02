@@ -1,21 +1,21 @@
 class TextilesController < ApplicationController
   def index
-  	@textiles = Textile.page(params[:page]).reverse_order
+    @textiles = Textile.page(params[:page]).reverse_order
   end
 
   def show
-  	@textile = Textile.find(params[:id])
+    @textile = Textile.find(params[:id])
   end
 
-   def search
+  def search
     method = params[:search_method]
     word = params[:search_word]
-    @textile = Textile.search(method,title)
-  end
-
+    @textile = Textile.search(method, title)
+ end
 
   private
+
   def textile_params
-  	params.require(:textile).permit(:title,:body,:image)
+    params.require(:textile).permit(:title, :body, :image)
   end
 end

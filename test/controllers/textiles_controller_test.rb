@@ -20,5 +20,4 @@ class TextilesControllerTest < ActionDispatch::IntegrationTest
     get textiles_edit_url
     assert_response :success
   end
-
 end

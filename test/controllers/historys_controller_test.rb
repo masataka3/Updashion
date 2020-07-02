@@ -20,5 +20,4 @@ class HistorysControllerTest < ActionDispatch::IntegrationTest
     get historys_edit_url
     assert_response :success
   end
-
 end

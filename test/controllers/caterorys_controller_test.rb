@@ -25,5 +25,4 @@ class CaterorysControllerTest < ActionDispatch::IntegrationTest
     get caterorys_delete_url
     assert_response :success
   end
-
 end

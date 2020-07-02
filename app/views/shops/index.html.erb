@@ -33,10 +33,9 @@ h2 {
             <%= image_tag shop.image.url, size: "280x280"%>
           <% end %>
         </div>
-        <div><span style="margin-right: 20px;font-size: 24px;">shop</span>  <%= shop.title %></div>
-        <div><%= shop.body %></div>
+        <div><h4><%= shop.title %></h4></div>
         <div><%= shop.address %></div>
-        <div><%= link_to "詳細", shop_path(shop) %></div>
+        <div style="text-align: center"><%= link_to "詳細", shop_path(shop), class: "btn btn-success" %></div>
       </div>
     <% end %>
     </div>

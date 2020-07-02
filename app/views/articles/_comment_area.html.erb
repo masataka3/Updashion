@@ -1,13 +1,11 @@
 <% comments.each do |comment| %>
-  <tr>
-    <td>
-      <%= attachment_image_tag comment.user, :profile_image, :fill, 50, 50, fallback: "5.png", size: "50x50" %><br>
-    </td>
-    <td><%= comment.user.name %>さん</td>
-    <td><%= comment.comment %></td>
+    <div>
+      <%= attachment_image_tag comment.user, :profile_image, :fill, 50, 50, fallback: "5.png", size: "50x50" %>
+    </div>
+    <div><h4><%= comment.user.name %>さん</h4></div>
+    <span><h4><%= comment.comment %></h4></span>
     <% if comment.user == current_user %>
-      <td><%= link_to 'Destroy', article_comments_path(comment.id),  method: :delete, remote: true, data: { confirm: '削除してよろしいですか？' }  %></td>
+    <div style="margin:20px 0;"><%= link_to 'Destroy', article_comments_path(comment.id),  method: :delete, remote: true, data: { confirm: '削除してよろしいですか？' }, class: "btn-sm btn-danger" %></div>
     <% end %>
-    <td><%= comment.created_at.strftime('%Y/%m/%d') %></td>
-    </tr>
+  <div style="margin-bottom:20px;"><%= comment.created_at.strftime('%Y/%m/%d') %></div>
   <% end %>
