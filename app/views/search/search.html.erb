@@ -38,17 +38,6 @@
               <% end %>
             </div>
         <% elsif @shop_or_sub_material_or_textile_or_history == "3" %>
-            <table>
-            <% @textiles.each do |textile| %>
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th><%= textile.title %></th>
-                    </tr>
-                </thead>
-            <% end %>
-            </table>
-            <% if @shop_or_sub_material_or_textile_or_history == "1"%>
             <div>
                 <% @textiles.each do |textile| %>
                 <div>
@@ -62,7 +51,7 @@
             </div>
         <% elsif @shop_or_sub_material_or_textile_or_history == "4" %>
         <div>
-            <% @historys.each do |history| %>
+            <% @history.each do |history| %>
               <div>
                 <% if history.image? %>
                   <%= image_tag history.image.url, size: "100x100"%>
@@ -71,9 +60,8 @@
                 <div><%= history.title %></div>
                 <div><%= link_to "詳細", history_path(history)%></div>
             <% end %>
+        <% end %>
         </div>
-        <% end %>
-        <% end %>
         </div>
     </div>
 </div>

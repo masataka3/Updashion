@@ -8,6 +8,7 @@ class HistorysController < ApplicationController
   end
 
   def search
+    logger.debug (params)
     method = params[:search_method]
     word = params[:search_word]
     @historys = History.search(method, title)
