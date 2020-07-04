@@ -1,6 +1,7 @@
 class HistorysController < ApplicationController
+  before_action :authenticate_user!
   def index
-    @historys = History.page(params[:page]).reverse_order
+    @histories = History.page(params[:page]).reverse_order
   end
 
   def show
@@ -17,6 +18,6 @@ class HistorysController < ApplicationController
   private
 
   def shop_params
-    params.require(:shop).permit(:title, :body, :image)
+    params.require(:history).permit(:title, :body, :image)
   end
 end

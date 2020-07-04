@@ -78,6 +78,8 @@ gem 'kaminari', '~> 1.2.1'
 
 # admin
 gem 'activeadmin'
+gem 'rails-i18n'
+gem 'devise-i18n'
 gem 'carrierwave'
 gem "gmaps4rails"
 gem "geocoder"
@@ -90,10 +92,15 @@ gem 'simple_form'
 # デプロイ
 gem 'dotenv-rails'
 group :production do
-  gem 'mysql2'
+  gem 'mysql2', '~>0.5.3'
+  # gem 'mysql2', '~>0.5.3'  記述しました。
 end
 
 gem 'ed25519'
 gem 'bcrypt_pbkdf'
 
 gem 'rubocop-airbnb'
+
+
+
+

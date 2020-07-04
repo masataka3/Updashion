@@ -1,4 +1,5 @@
 class SubMaterialsController < ApplicationController
+  before_action :authenticate_user!
   def index
     @sub_materials = SubMaterial.page(params[:page]).reverse_order
   end

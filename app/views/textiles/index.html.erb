@@ -15,17 +15,10 @@ h2 {
 <div class="body">
   <div class="container">
     <div>
-      <div style="float: right;" >
-        <%= form_tag(search_path, :method => 'get') do %>
-            <%= select_tag 'option', options_for_select({shop: 1, sub_material: 2,textile: 3, history: 4},1), include_blank: true%>
-            <%= text_field_tag :search %>
-          <%= submit_tag 'Search', :name => nil %>
-        <% end %>
-      </div>
       <h2>Textiles</h2>
     </div>
     <div class="row sampleRow">
-      <%= @textiles.each do |textile|%>
+      <% @textiles.each do |textile|%>
       <div class="col-md-12"  style="width: 310px; padding: 10px; margin: 20px;">
         <div class = "box1" >
           <% if textile.image? %>

@@ -1,13 +1,20 @@
 <style>
   h2 {
-  background: #dfefff;
-  box-shadow: 0px 0px 0px 5px #dfefff;
-  border: dashed 2px white;
-  padding: 0.2em 0.5em;
-  width: 290px;
-  margin: 20px auto 50PX;
-  text-align: center;
-}
+    background: #dfefff;
+    box-shadow: 0px 0px 0px 5px #dfefff;
+    border: dashed 2px white;
+    padding: 0.2em 0.5em;
+    width: 290px;
+    margin: 20px auto 50PX;
+    text-align: center;
+  }
+
+  #preview_image {
+    display: none;
+    margin: 0 auto;
+    height: 200px;
+    width: 200px;
+  }
 </style>
 <%= render 'layouts/errors', obj: @user %>
 <div class="body">
@@ -16,8 +23,8 @@
       <h2>プロフィール編集</h2>
         <%= form_for(@user) do |f| %>
 
-        <img id="preview_image" >
-        <div id= "profile_image" style ="text-align: center;">
+        <img id="preview_image"  style="height: 200px;width: 200px;">
+        <div id= "profile_image" style ="text-align: center;" >
           <%= attachment_image_tag @article, :image, class: "img-square", fallback: "5.png", size:"200x200" %>
         </div>
 
@@ -50,6 +57,7 @@
   $('#user_profile_image').on('change', function (e) {
       var reader = new FileReader();
       reader.onload = function (e) {
+          $('#preview_image').css('display', 'block')
           $("#preview_image").attr('src', e.target.result);
           $("#profile_image img").css('display','none');
       }

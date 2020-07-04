@@ -44,8 +44,6 @@ footer {
 	background-color:#dfefff;
 }
 
-
-
 .center-block{
 	width: 550px;
 	margin: 0 auto;
@@ -77,7 +75,74 @@ header,nav,li,h1,h2,h3,h4,th,td,p,footer {
 
 /*article index */
 .img_prev:hover {
-  cursor: pointer; 
+  cursor: pointer;
   opacity: 0.7;
   transform: scale(1.01, 1.01);
+}
+
+.hash-tag{
+  background-color: #dfefff;
+  border-radius: 5px;
+  padding:5px;
+  margin: 0 10px 10px;
+}
+/*userinfoテキストエリア*/
+textarea {
+  width:254px;
+  height:80px;
+}
+
+/*home css*/
+.btn-stitch {
+  padding: 0.5em 1em;
+  text-decoration: none;
+  background: #dfefff ;
+  color: #FFF;
+  border-radius: 4px;
+  box-shadow: 0px 0px 0px 5px #dfefff;
+  border: dashed 4px #FFF;
+  margin :0 auto;
+  text-align: center;
+}
+
+.btn-stitch:hover {
+  border: dotted 1px #FFF;
+}
+/*テキスト アニメーション*/
+.text-anime3{
+  animation: text_animation3 3s;
+}
+
+@keyframes text_animation3{
+  0%{
+    letter-spacing: -0.5em;
+    transform: translateY(-1000px);
+  }
+
+  50%{
+    letter-spacing: -0.5em;
+    transform: none;
+  }
+
+  100%{
+    letter-spacing: 0;
+  }
+}
+
+
+/* about */
+.Headline{
+  animation: SlideIn 1.6s;
+}
+
+/* CSSアニメーションの設定 */
+@keyframes SlideIn {
+  0% {
+    opacity: 0;/*初期状態では透明に*/
+    transform: translateX(64px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }

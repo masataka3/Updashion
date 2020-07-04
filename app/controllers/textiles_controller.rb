@@ -1,4 +1,5 @@
 class TextilesController < ApplicationController
+  before_action :authenticate_user!
   def index
     @textiles = Textile.page(params[:page]).reverse_order
   end

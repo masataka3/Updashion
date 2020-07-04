@@ -17,3 +17,20 @@
 //= require_tree .
 //= require underscore
 //= require gmaps/google
+
+
+handler = Gmaps.build('Google');
+handler.buildMap({ provider: { scrollwheel: false }, internal: {id: 'map'}}, function(){
+markers = handler.addMarkers([
+  {
+    "lat": <%= @shop.latitude %>,
+    "lng": <%= @shop.longitude %>,
+	  "infowindow": '<p><%= @shop.title %></p><p><%= @shop.address %></p><p><%= link_to "Googleマップで見る" ,"https://maps.google.co.jp/maps?q=loc:#{@shop.latitude},#{@shop.longitude}&iwloc=J",target: "_blank" %></p>'
+  }
+]);
+handler.bounds.extendWith(markers);
+handler.fitMapToBounds();
+handler.getMap().setZoom(17);
+});
+
+

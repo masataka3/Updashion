@@ -1,18 +1,3 @@
-<style>
-.sampleRow > div {
-  min-height: 6em;
-  border : dashed 4px #dfefff;
-}
-h2 {
-  background: #dfefff;
-  box-shadow: 0px 0px 0px 5px #dfefff;
-  border: dashed 2px white;
-  padding: 0.2em 0.5em;
-  width: 180px;
-  margin-bottom: 50px;
-}
-</style>
-
 <div class="body">
   <div class="container">
     <h2>Shop詳細</h2>
@@ -33,22 +18,7 @@ h2 {
     </div>
     <div style="margin-top: 60px"><h2>お店情報</h2>
     <p>address</p>
-    <p><%= @shop.address %></p>
+    <p>〒<%= @shop.address %></p>
     <div id="map" style='width: 300px; height: 300px;'></div>
-    <script type="text/javascript">
-      handler = Gmaps.build('Google');
-      handler.buildMap({ provider: { scrollwheel: false }, internal: {id: 'map'}}, function(){
-        markers = handler.addMarkers([
-          {
-            "lat": <%= @shop.latitude %>,
-            "lng": <%= @shop.longitude %>,
-  		  "infowindow": '<p><%= @shop.title %></p><p><%= @shop.address %></p><p><%= link_to "Googleマップで見る" ,"https://maps.google.co.jp/maps?q=loc:#{@shop.latitude},#{@shop.longitude}&iwloc=J",target: "_blank" %></p>'
-          }
-        ]);
-        handler.bounds.extendWith(markers);
-        handler.fitMapToBounds();
-        handler.getMap().setZoom(17);
-      });
-    </script>
   </div>
 </div>

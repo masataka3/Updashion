@@ -64,18 +64,12 @@
         <div class="content" style="margin-top:30px;">
           <div><%= simple_format @article.body %></div>
         </div>
-          <% @article.tag_list.each do |article| %>
-            <span style="background-color: #dfefff; border-radius: 5px;">＃<%= article %></span>
+          <% @article.tag_list.each do |tag| %>
+            <span class="hash-tag">
+              ＃<%= link_to "#{tag}", tags_articles_path(tag_name: tag) %>
+            </span>
           <% end %>
         </div>
       </div>
     </div>
   </div>
-
-
-<style>
-  textarea {
-  width:254px;
-  height:80px;
-}
-</style>

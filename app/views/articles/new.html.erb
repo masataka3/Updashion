@@ -8,6 +8,12 @@
   text-align: center;
   margin: 30px auto ;
 }
+  #preview_image {
+    display: none;
+    margin: 0 auto;
+    height: 200px;
+    width: 200px;
+  }
 </style>
 
 <div class ="body">
@@ -66,6 +72,7 @@
           $('#article_image').on('change', function (e) {
               var reader = new FileReader();
               reader.onload = function (e) {
+                  $('#preview_image').css('display', 'block')
                   $("#preview_image").attr('src', e.target.result);
                   $("#item_image img").css('display','none');
               }

@@ -1,4 +1,5 @@
 class ArticlesController < ApplicationController
+  before_action :authenticate_user!
   def index
     @articles = Article.page(params[:page]).reverse_order
   end
@@ -55,8 +56,12 @@ class ArticlesController < ApplicationController
     @articles = current_user.bookmark_articles
   end
 
-  def confirm
+  def tags
+    if params[:tag_name]
+      @articles = Article.tagged_with("#{params[:tag_name]}")
+    end
   end
+
 
   private
 

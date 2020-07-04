@@ -1,4 +1,5 @@
 class BookmarksController < ApplicationController
+
   def create
     bookmark = current_user.bookmarks.build(article_id: params[:article_id])
     bookmark.save

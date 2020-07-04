@@ -16,17 +16,10 @@ h2 {
 <div class="body">
   <div class="container">
     <div>
-      <div style="float: right;">
-        <%= form_tag(search_path, :method => 'get') do %>
-        <%= select_tag 'option', options_for_select({shop: 1, sub_material: 2,textile: 3, history: 4},1), include_blank: true%>
-          <%= text_field_tag :search %>
-        <%= submit_tag 'Search', :name => nil %>
-      <% end %>
-      </div>
       <h2>SubMaterials</h2>
     </div>
     <div class="row sampleRow">
-      <%= @sub_materials.each do |material|%>
+      <% @sub_materials.each do |material|%>
       <div class="col-md-12"  style="width: 310px; padding: 10px; margin: 20px;">
         <div class= "box1">
           <% if material.image? %>
@@ -35,8 +28,7 @@ h2 {
         </div>
         <div><span style="margin-right: 20px;font-size: 24px;"></span>
           <%= material.title %></div>
-        <div><%= material.body %></div>
-        <div style="text-align: center"><%= link_to "詳細",sub_material_path(sub_material)%></div>
+        <div style="text-align: center"><%= link_to "詳細",sub_material_path(material)%></div>
       </div>
     <% end %>
     </div>
