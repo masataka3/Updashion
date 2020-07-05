@@ -44,6 +44,9 @@ group :development, :test do
   gem 'capistrano3-puma'
   gem 'capistrano-rbenv'
   gem 'rspec-rails'
+  gem 'pry-rails'
+  gem 'pry-byebug'
+  gem 'pry-doc'
 end
 
 group :development do

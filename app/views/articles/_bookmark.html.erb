@@ -1,9 +1,14 @@
 <% if article.bookmark_by?(current_user) %>
 	<div style='display: inline;'>
-	    <%= link_to "", article_bookmarks_path(article.id), method: :delete, id: :"js-bookmark-button-for-article-#{article.id}" , class: "glyphicon glyphicon-bookmark fa-lg", style: "color:#dfefff;" %>
+	    <%= link_to article_bookmarks_path(article), method: :delete,remote: true do %>
+	    <i class="fa fa-heart fa-lg" aria-hidden="true" style="color: black; "></i>
+	    <% end %>
 	  </div>
 <% else %>
     <div style='display: inline;'>
-	    <%= link_to "", article_bookmarks_path(article.id), method: :post, id: :"js-bookmark-button-for-article-#{article.id}" , class: "glyphicon glyphicon-bookmark fa-lg"%>
+	    <%= link_to article_bookmarks_path(article), method: :post, remote: true do %>
+      <i class="fa fa-heart-o fa-lg" aria-hidden="true"></i>
+      <% end %>
 	  </div>
 <% end %>
+

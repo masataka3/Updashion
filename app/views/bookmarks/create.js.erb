@@ -1,5 +1,6 @@
 if (location.pathname == '/articles') {
-  $(".article_<%= @article.id %>").html("<%= j(render 'articles/bookmark',  article: @article ) %>")
-} else {
-  $(".article_<%= @article.id %>").html("<%= j(render 'articles/bookmark',  article: @article ) %>")
+  $('.article_bookmark_<%= @article.id  %>').html("<%= j(render 'articles/bookmark',  article: @article ) %>")
+}
+else {
+  $(".article_bookmark_<%= @article.id  %>").html("<%= j(render 'articles/bookmark',  article: @article ) %>")
 }

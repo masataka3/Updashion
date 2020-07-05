@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   root 'home#top'
   get 'home/about'
   get "search" => "search#search"
+  get 'users/unsubscribed'=> "users#unsubscribed"
   resources :users, only: [:show, :edit,:update ] do
     resource :relationships, only: [:create, :destroy]
     get 'follows' => 'relationships#follower', as: 'follows'
@@ -21,7 +22,6 @@ Rails.application.routes.draw do
     resource :bookmarks, only: [:create, :destroy]
     collection do
     get :tags
-    # get :bookmarks, on: :collection
     end
   end
 

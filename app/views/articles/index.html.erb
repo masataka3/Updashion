@@ -29,7 +29,7 @@ h2 {
       <div class="col-md-12"  style="width: 340px; padding: 20px; margin: 20px;">
         <div >
           <%= link_to article_path(article) do %>
-            <%= attachment_image_tag article, :image, fallback: "5.png",size: "280x280",class: "hover"%>
+            <%= attachment_image_tag article, :image, fallback: "icon.png",size: "280x280",class: "hover"%>
           <% end %>
         </div>
         <div style ="margin-top:40px"><h4><%= article.title %></h4></div>

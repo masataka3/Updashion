@@ -1,0 +1,20 @@
+<div class="body">
+	<div class="container">
+		<div class="row">
+
+			<section class="box" style="text-align: center;margin-bottom: 30px;">
+				<div class="entry__body">
+				<h3 style="margin-bottom: 150px;"><strong><span style="color: #ff0000;">※退会前に確認してください※</span></strong></h3>
+					<h4>・退会すると利用していたサービス等のアカウント情報は削除されます。</h4>
+					<h4>・退会後、同じIDでの再登録はできません。</h4>
+					<h4 style="margin-bottom: 150px;">・退会手続きを行ってから記事が削除されるまで、最大24時間ほど時間を要します。</h4>
+				</div>
+			</section>
+			 <div class="actions" style="text-align: center;margin: 50px;">
+			    <% if user_signed_in? && @user.id == current_user.id %>
+			    <%= link_to "退会", users_hide_path(current_user), method: :put, "data-confirm" => "本当に退会しますか？", class: "btn btn-danger" %>
+			　　 <% end %>
+			</div>
+		</div>
+	</div>
+</div>

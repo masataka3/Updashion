@@ -10,10 +10,12 @@
     <div class='body'>
 	  <div class='container'>
 		<nav class='nav navbar-nav navbar-right' >
-			<div><%= link_to root_path do %><%= image_tag asset_path("logo.png") %>
-				<% end %>
-			</div>
-			  <p>CopyRight Updashiom.inc</p>
+        	<% if user_signed_in? %>
+        		<%= link_to user_path (current_user) do %><%= image_tag asset_path("logo.png") %><% end %>
+        	<% else %>
+          		<%= link_to root_path do %><%= image_tag asset_path("logo.png") %><% end %>
+          	<% end %>
+			<p>CopyRight Updashiom.inc</p>
 		</nav>
 		<nav class='nav navbar-nav navbar-left'>
 			<div class="social" >

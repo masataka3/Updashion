@@ -21,6 +21,11 @@ class UsersController < ApplicationController
     end
   end
 
+  def unsubscribed
+    @user = User.find(current_user.id)
+
+  end
+
   def hide
     @user = User.find(params[:id])
     @user.update(is_deleted: true)

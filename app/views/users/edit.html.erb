@@ -16,16 +16,24 @@
     width: 200px;
   }
 </style>
-<%= render 'layouts/errors', obj: @user %>
 <div class="body">
   <div class ="container">
+       <% if @user.errors.any? %>
+      <div class="alert alert-warning">
+        <ul>error
+          <% @user.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
     <div class ="center-block">
       <h2>プロフィール編集</h2>
         <%= form_for(@user) do |f| %>
 
         <img id="preview_image"  style="height: 200px;width: 200px;">
         <div id= "profile_image" style ="text-align: center;" >
-          <%= attachment_image_tag @article, :image, class: "img-square", fallback: "5.png", size:"200x200" %>
+          <%= attachment_image_tag @article, :image, class: "img-square", fallback: "icon.png", size:"200x200" %>
         </div>
 
           <div class="field"style="text-align: center;margin-bottom: 30px;">
@@ -45,10 +53,8 @@
           </div>
         <% end %>
           <div class="actions" style="text-align: center;margin-bottom: 30px;">
-            <% if user_signed_in? && @user.id == current_user.id %>
-            <%= link_to "退会", users_hide_path(current_user), method: :put, "data-confirm" => "本当に退会しますか？", class: "btn btn-danger" %>
+            <%= link_to "退会ページに進む", users_unsubscribed_path %>
           </div>
-　　    <% end %>
     </div>
   </div>
 </div>

@@ -2,7 +2,11 @@
   <div class="container">
     <nav class='nav navbar-nav navbar-left' >
       <div class="site-title">
+        <% if user_signed_in? %>
+        <%= link_to user_path (current_user) do %><%= image_tag asset_path("logo.png") %><% end %>
+        <% else %>
           <%= link_to root_path do %><%= image_tag asset_path("logo.png") %><% end %>
+          <% end %>
      </div>
     </nav>
     <div class="navi" style="padding-top:30px;">
