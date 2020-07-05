@@ -84,12 +84,7 @@ header,nav,li,h1,h2,h3,h4,th,td,p,footer {
   background-color: #dfefff;
   border-radius: 5px;
   padding:5px;
-  margin: 0 10px 10px;
-}
-/*userinfoテキストエリア*/
-textarea {
-  width:254px;
-  height:80px;
+  margin-right: 10px;
 }
 
 /*home css*/
@@ -135,14 +130,4 @@ textarea {
   animation: SlideIn 1.6s;
 }
 
-/* CSSアニメーションの設定 */
-@keyframes SlideIn {
-  0% {
-    opacity: 0;/*初期状態では透明に*/
-    transform: translateX(64px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
+

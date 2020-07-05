@@ -1,2 +1,20 @@
-<h1>SubMaterials#show</h1>
-<p>Find me in app/views/sub_materials/show.html.erb</p>
+<div class="body">
+  <div class="container">
+    <h2>Shop詳細</h2>
+    <div class="row">
+      <div class="col-xs-3">
+        <div>
+           <%= image_tag @sub_material.image.url, size: "300x300"%>
+        </div>
+      </div>
+      <div class="col-xs-9">
+        <div class="columns is-centered"style="display: inline-block;margin-left:60px;">
+          <div class="content">
+            <h3><%= @sub_material.title %></h3>
+          <div><%= simple_format @sub_material.body %></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
