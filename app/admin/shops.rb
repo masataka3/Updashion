@@ -6,13 +6,14 @@ ActiveAdmin.register Shop do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  permit_params :title, :body, :image, :address, :latitude, :longitude
+  permit_params :title, :body, :image, :address, :access, :latitude, :longitude
   form do |f|
     f.inputs do
       f.input :title
       f.input :body
       f.input :image, as: :file
       f.input :address
+      f.input :access
     end
     f.actions
   end
@@ -20,7 +21,8 @@ ActiveAdmin.register Shop do
   show do |shop|
     attributes_table do
       row :title
-      row :body
+      row :address
+      row :access
       row :latitude
       row :longitude
       row :image do

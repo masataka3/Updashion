@@ -19,25 +19,7 @@
     <div style="margin-top: 60px"><h2>お店情報</h2>
     <p>address</p>
     <p>〒<%= @shop.address %></p>
+    <p><%= @shop.access %></p>
     <div id="map" style='width: 300px; height: 300px;'></div>
   </div>
 </div>
-
-<script>
-handler = Gmaps.build('Google');
-handler.buildMap({ provider: { scrollwheel: false }, internal: {id: 'map'}}, function(){
-markers = handler.addMarkers([
-  {
-    "lat": <%= @shop.latitude %>,
-    "lng": <%= @shop.longitude %>,
-    "infowindow": '<p><%= @shop.title %></p><p><%= @shop.address %></p><p><%= link_to "Googleマップで見る" ,"https://maps.google.co.jp/maps?q=loc:#{@shop.latitude},#{@shop.longitude}&iwloc=J",target: "_blank" %></p>'
-  }
-]);
-handler.bounds.extendWith(markers);
-handler.fitMapToBounds();
-handler.getMap().setZoom(17);
-});
-
-</script>
-
-<!-- グーグルマップjs表示されない -->

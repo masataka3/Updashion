@@ -74,6 +74,20 @@ header,nav,li,h1,h2,h3,h4,th,td,p,footer {
   margin-right: 10px;
 }
 
+i{
+  text-align: center;
+  padding: 0 10px;
+  margin: 40px 0;
+}
+/*スライド*/
+.swiper-container,.swiper-wrapper,.swiper-slide{
+  height: 500px;
+  width: 670px;
+}
+.sub-title {
+  margin-top: 400px;
+}
+/*コンテナ*/
 .sampleRow > div {
   min-height: 6em;
   border : dashed 4px #dfefff;
@@ -296,7 +310,14 @@ header,nav,li,h1,h2,h3,h4,th,td,p,footer {
   width: 200px;
   margin-bottom: 50px;
 }
-
+/*tag*/
+.tag__index__title{
+  background: #dfefff;
+  box-shadow: 0px 0px 0px 5px #dfefff;
+  border: dashed 2px white;
+  padding: 0.2em 0.5em;
+  width: 160px;
+}
 /*スライドアニメーション textile shop  sub material hisyory 画像*/
 .box1{
   animation: SlideIn 1.6s;
@@ -311,7 +332,10 @@ header,nav,li,h1,h2,h3,h4,th,td,p,footer {
     transform: translateY(0);
   }
 }
-
+.article__show__texrarea {
+      width:254px;
+      height:80px;
+  }
 
 
 

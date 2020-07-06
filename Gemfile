@@ -49,6 +49,7 @@ group :development, :test do
   gem 'pry-doc'
   gem 'pry-rails'
   gem 'rspec-rails'
+  gem 'rubocop-airbnb'
 end
 
 group :development do
@@ -56,7 +57,6 @@ group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'web-console', '>= 3.3.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'rubocop-airbnb'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
@@ -86,6 +86,7 @@ gem 'pry-byebug'
 gem 'activeadmin'
 gem 'carrierwave'
 gem 'devise-i18n'
+# map
 gem 'geocoder'
 gem 'gmaps4rails'
 gem 'rails-i18n'
@@ -105,4 +106,3 @@ end
 gem 'bcrypt_pbkdf'
 gem 'ed25519'
 
-gem 'rubocop-airbnb'
