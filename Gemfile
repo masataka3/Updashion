@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
@@ -38,22 +40,23 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'capistrano'
   gem 'capistrano-rails'
-  gem 'capistrano3-puma'
   gem 'capistrano-rbenv'
-  gem 'rspec-rails'
-  gem 'pry-rails'
+  gem 'capistrano3-puma'
   gem 'pry-byebug'
   gem 'pry-doc'
+  gem 'pry-rails'
+  gem 'rspec-rails'
 end
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
-  gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
+  gem 'web-console', '>= 3.3.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+  gem 'rubocop-airbnb'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
@@ -69,29 +72,29 @@ end
 gem 'devise'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
-gem "refile", require: "refile/rails", github: 'manfe/refile'
-gem "refile-mini_magick"
+gem 'refile', require: 'refile/rails', github: 'manfe/refile'
+gem 'refile-mini_magick'
 
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'jquery-rails'
-gem 'pry-byebug'
 gem 'kaminari', '~> 1.2.1'
+gem 'pry-byebug'
 
 # admin
 gem 'activeadmin'
-gem 'rails-i18n'
-gem 'devise-i18n'
 gem 'carrierwave'
-gem "gmaps4rails"
-gem "geocoder"
+gem 'devise-i18n'
+gem 'geocoder'
+gem 'gmaps4rails'
+gem 'rails-i18n'
 
 gem 'acts-as-taggable-on', '~> 6.0'
 gem 'gimei'
 # サマーノート
-gem 'summernote-rails', '~> 0.8.10.0'
 gem 'simple_form'
+gem 'summernote-rails', '~> 0.8.10.0'
 # デプロイ
 gem 'dotenv-rails'
 group :production do
@@ -99,11 +102,7 @@ group :production do
   # gem 'mysql2', '~>0.5.3'  記述しました。
 end
 
-gem 'ed25519'
 gem 'bcrypt_pbkdf'
+gem 'ed25519'
 
 gem 'rubocop-airbnb'
-
-
-
-

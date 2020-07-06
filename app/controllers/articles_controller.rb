@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ArticlesController < ApplicationController
   before_action :authenticate_user!
   def index
@@ -18,25 +20,23 @@ class ArticlesController < ApplicationController
     @article[:updated_by] = current_user.id
     @article.user = current_user
     if @article.save
-      redirect_to article_path(@article), notice: "新規投稿しました。"
+      redirect_to article_path(@article), notice: '新規投稿しました。'
 
     else
-      render "new"
+      render 'new'
     end
   end
 
   def edit
     @article = Article.find(params[:id])
-    if @article.user.id != current_user.id
-      redirect_to articles_path
-      end
+    redirect_to articles_path if @article.user.id != current_user.id
     end
 
   def update
     @article = Article.find(params[:id])
     @article[:updated_by] = current_user.id
     if @article.update(article_params)
-      redirect_to article_path(@article), notice: "記事を更新しました。"
+      redirect_to article_path(@article), notice: '記事を更新しました。'
     else
       render :edit
     end
@@ -48,8 +48,8 @@ class ArticlesController < ApplicationController
 
   def destroy
     @article = Article.find(params[:id])
-    @article.destroy
-    redirect_to articles_path, notice: "記事を削除しました。"
+    @article.destroy!
+    redirect_to articles_path, notice: '記事を削除しました。'
   end
 
   def bookmarks
@@ -57,11 +57,8 @@ class ArticlesController < ApplicationController
   end
 
   def tags
-    if params[:tag_name]
-      @articles = Article.tagged_with("#{params[:tag_name]}")
-    end
+    @articles = Article.tagged_with(params[:tag_name].to_s) if params[:tag_name]
   end
-
 
   private
 

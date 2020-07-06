@@ -1,5 +1,6 @@
-class UsersController < ApplicationController
+# frozen_string_literal: true
 
+class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @users = User.all
@@ -8,14 +9,14 @@ class UsersController < ApplicationController
   def edit
     @user = User.find(params[:id])
     if @user != current_user
-      redirect_to user_path(current_user), alert: "不正なアクセスです。"
+      redirect_to user_path(current_user), alert: '不正なアクセスです。'
    end
   end
 
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
-      redirect_to user_path(@user), notice: "ユーザー情報を更新しました。"
+      redirect_to user_path(@user), notice: 'ユーザー情報を更新しました。'
     else
       render :edit
     end
@@ -23,14 +24,13 @@ class UsersController < ApplicationController
 
   def unsubscribed
     @user = User.find(current_user.id)
-
   end
 
   def hide
     @user = User.find(params[:id])
-    @user.update(is_deleted: true)
+    @user.update!(is_deleted: true)
     reset_session
-    flash[:notice] = "ありがとうございました。またのご利用を心よりお待ちしております。"
+    flash[:notice] = 'ありがとうございました。またのご利用を心よりお待ちしております。'
     redirect_to root_path
    end
 

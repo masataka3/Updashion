@@ -1,7 +1,7 @@
 <div class="body">
   <div class="container">
     <div>
-    <h2>Shops</h2>
+    <h2 class="shop__index__title">Shops</h2>
     </div>
       <div class="row sampleRow">
       <% @shops.each do |shop|%>
@@ -20,18 +20,3 @@
     <%= paginate @shops %>
   </div>
 </div>
-<style>
-.sampleRow > div {
-  min-height: 6em;
-  border : dashed 4px #dfefff;
-  margin: 0 auto;
-}
-h2 {
-  background: #dfefff;
-  box-shadow: 0px 0px 0px 5px #dfefff;
-  border: dashed 2px white;
-  padding: 0.2em 0.5em;
-  width: 130px;
-  margin-bottom: 50px;
-}
-</style>

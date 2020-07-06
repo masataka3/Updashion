@@ -1,8 +1,10 @@
-# config valid for current version and patch releases of Capistrano
-lock "~> 3.14.1"
+# frozen_string_literal: true
 
-set :application, "Updashion"
-set :repo_url, "git@github.com:masataka3/Updashion.git"
+# config valid for current version and patch releases of Capistrano
+lock '~> 3.14.1'
+
+set :application, 'Updashion'
+set :repo_url, 'git@github.com:masataka3/Updashion.git'
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
@@ -38,7 +40,7 @@ set :repo_url, "git@github.com:masataka3/Updashion.git"
 # Uncomment the following to require manually verifying the host key before first deploy.
 # set :ssh_options, verify_host_key: :secure
 
-set :deploy_to, "/home/ec2-user/Updashion"
+set :deploy_to, '/home/ec2-user/Updashion'
 set :rbenv_ruby, '2.5.7'
-set :linked_files, %w(config/master.key .env)
-append :linked_dirs, "log", "public/system", "tmp"
+set :linked_files, %w[config/master.key .env]
+append :linked_dirs, 'log', 'public/system', 'tmp'

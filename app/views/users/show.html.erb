@@ -1,31 +1,18 @@
-<style>
-.sampleRow > div {
-  min-height: 6em;
-  border : dashed 4px #dfefff;
-  padding: 30px
-}
-h2 {
-  background: #dfefff;
-  box-shadow: 0px 0px 0px 5px #dfefff;
-  border: dashed 2px white;
-  padding: 0.2em 0.5em;
-  width: 160px;
-  margin-bottom: 30px;
-}
-</style>
-
 <div class="body">
   <div class="container">
     <div class ="row">
       <div class="col-md-9 col-md-push-3">
+        <h2 class="user__article__title">投稿一覧</h2>
         <%= render 'article',user: @user%>
       </div>
 
       <div class="col-xs-3 col-md-pull-9">
+        <h2 class="user__show__title">User info</h2>
         <%= render 'info', user: @user,now: ''%>
       </div>
 
       <div class="col-md-9 col-md-push-3">
+        <h2 class="user_favorite_title">お気に入り記事</h2>
         <%= render 'favorite', user: @user %>
 
       </div>

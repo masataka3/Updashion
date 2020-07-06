@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class HistorysController < ApplicationController
   before_action :authenticate_user!
   def index
@@ -9,7 +11,7 @@ class HistorysController < ApplicationController
   end
 
   def search
-    logger.debug (params)
+    logger.debug params
     method = params[:search_method]
     word = params[:search_word]
     @historys = History.search(method, title)

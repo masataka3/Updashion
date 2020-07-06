@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # server-based syntax
 # ======================
 # Defines a single server with a list of roles and multiple properties.
@@ -53,4 +55,4 @@
 #     auth_methods: %w(publickey password)
 #     # password: "please use keys"
 #   }
-server '54.64.78.100', user: 'ec2-user', roles: %w(app web db)
+server '54.64.78.100', user: 'ec2-user', roles: %w[app web db]
