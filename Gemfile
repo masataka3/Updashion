@@ -100,7 +100,6 @@ gem 'summernote-rails', '~> 0.8.10.0'
 gem 'dotenv-rails'
 group :production do
   gem 'mysql2', '~>0.5.3'
-  # gem 'mysql2', '~>0.5.3'  記述しました。
 end
 
 gem 'bcrypt_pbkdf'

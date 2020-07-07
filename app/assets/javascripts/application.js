@@ -17,6 +17,10 @@
 //= require underscore
 //= require gmaps/google
 //= require_tree .
+
+
+
+
 $(function (){
 // summernonte
 $('[data-provider="summernote"]').each(function(){
@@ -49,16 +53,36 @@ $('[data-provider="summernote"]').each(function(){
       reader.readAsDataURL(e.target.files[0]);
   });
 });
-// swwipew js動かない
-  var swiper = new Swiper('.swiper-container', {
-    loop: true,
-    pagination: {
-    el: '.swiper-pagination',
-    type: 'bullets',
-    clickable: true,
-  },
-    autoplay: {
-    delay: 3000,
-    disableOnInteraction: true
-    },
-  });
+
+
+
+// スライドマップ動かない
+
+// handler = Gmaps.build('Google');
+// handler.buildMap({ provider: { scrollwheel: false }, internal: {id: 'map'}}, function(){
+// markers = handler.addMarkers([
+//   {
+//     "lat": <%= @shop.latitude %>,
+//     "lng": <%= @shop.longitude %>,
+//     "infowindow": '<p><%= @shop.title %></p><p><%= @shop.address %></p><p><%= link_to "Googleマップで見る" ,"https://maps.google.co.jp/maps?q=loc:#{@shop.latitude},#{@shop.longitude}&iwloc=J",target: "_blank" %></p>'
+//   }
+// ]);
+// handler.bounds.extendWith(markers);
+// handler.fitMapToBounds();
+// handler.getMap().setZoom(17);
+// });
+
+
+
+//   var swiper = new Swiper('.swiper-container', {
+//     loop: true,
+//     pagination: {
+//     el: '.swiper-pagination',
+//     type: 'bullets',
+//     clickable: true,
+//   },
+//     autoplay: {
+//     delay: 3000,
+//     disableOnInteraction: true
+//     },
+//   });
