@@ -31,7 +31,8 @@ $('[data-provider="summernote"]').each(function(){
   fontNamesIgnoreCheck: ['Helvetica', 'sans-serif', 'Arial', 'Arial Black', 'Comic Sans MS', 'Courier New'],
     });
   });
-
+});
+$(function (){
   // article__imagepreview
   $('#article_image').on('change', function (e) {
       var reader = new FileReader();
@@ -41,7 +42,9 @@ $('[data-provider="summernote"]').each(function(){
           $("#item_image img").css('display','none');
       }
       reader.readAsDataURL(e.target.files[0]);
+   });
   });
+$(function (){
   // user__profile__image
     $('#user_profile_image').on('change', function (e) {
       var reader = new FileReader();
@@ -56,8 +59,7 @@ $('[data-provider="summernote"]').each(function(){
 
 
 
-// スライドマップ動かない
-
+// $(function (){
 // handler = Gmaps.build('Google');
 // handler.buildMap({ provider: { scrollwheel: false }, internal: {id: 'map'}}, function(){
 // markers = handler.addMarkers([
@@ -70,10 +72,10 @@ $('[data-provider="summernote"]').each(function(){
 // handler.bounds.extendWith(markers);
 // handler.fitMapToBounds();
 // handler.getMap().setZoom(17);
+//   });
 // });
 
-
-
+// $(function (){
 //   var swiper = new Swiper('.swiper-container', {
 //     loop: true,
 //     pagination: {
@@ -86,3 +88,5 @@ $('[data-provider="summernote"]').each(function(){
 //     disableOnInteraction: true
 //     },
 //   });
+// });
+
