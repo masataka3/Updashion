@@ -5,7 +5,7 @@
     </div>
       <div class="row sampleRow">
       <% @shops.each do |shop|%>
-      <div class="col-md-12"  style="width: 310px; padding: 10px; margin: 20px;">
+      <div class="col-md-12"style="width: 310px; padding: 10px; margin: 20px;">
         <div class="box1">
           <% if shop.image? %>
             <%= image_tag shop.image.url, size: "280x280"%>
@@ -13,10 +13,12 @@
         </div>
         <div><h4><%= shop.title %></h4></div>
         <div>〒<%= shop.address %></div>
-        <div style="text-align: center"><%= link_to "詳細", shop_path(shop), class: "btn btn-success" %></div>
+        <div class="shop__btn"><%= link_to "詳細", shop_path(shop), class: "btn btn-success" %></div>
       </div>
     <% end %>
     </div>
     <%= paginate @shops %>
   </div>
 </div>
+
+

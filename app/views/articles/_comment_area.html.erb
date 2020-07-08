@@ -5,7 +5,7 @@
     <div><h4><%= link_to comment.user.name %>さん</h4></div>
     <span><h4><%= comment.comment %></h4></span>
     <% if comment.user == current_user %>
-    <div style="margin:20px 0;"><%= link_to 'Destroy', article_comments_path(comment.id),  method: :delete, remote: true, data: { confirm: '削除してよろしいですか？' }, class: "btn-sm btn-danger" %></div>
+    <div class="comment"><%= link_to 'Destroy', article_comments_path(comment.id),  method: :delete, remote: true, data: { confirm: '削除してよろしいですか？' }, class: "btn-sm btn-danger" %></div>
     <% end %>
-  <div style="margin-bottom:20px;"><%= comment.created_at.strftime('%Y/%m/%d') %></div>
+  <div class="comment__time"><%= comment.created_at.strftime('%Y/%m/%d') %></div>
   <% end %>

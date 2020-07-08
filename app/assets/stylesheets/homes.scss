@@ -2,3 +2,66 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+/*スライド*/
+.swiper-container,.swiper-wrapper,.swiper-slide{
+  height: 500px;
+  width: 670px;
+}
+.sub-title {
+  margin-top: 400px;
+}/*home css*/
+.btn-stitch {
+  padding: 0.5em 1em;
+  text-decoration: none;
+  background: #dfefff ;
+  color: #FFF;
+  border-radius: 4px;
+  box-shadow: 0px 0px 0px 5px #dfefff;
+  border: dashed 4px #FFF;
+  margin :0 auto;
+  text-align: center;
+}
+
+.btn-stitch:hover {
+  border: dotted 1px #FFF;
+}
+.home__container__top{
+  margin:30px auto;
+}
+.home__conteiner{
+  margin-bottom:100px
+}
+.home__sub__title{
+  margin:130px auto
+}
+.home__text__center{
+  width:60%; margin: 0 auto;
+}
+.home__text__title{
+  margin: 50px auto;
+  display: inline-block;
+  border-bottom: dashed 5px #dfefff;
+  padding-bottom: 10px;
+}
+.home__text__subtitle{
+  text-align: center
+}
+.home__image{
+  text-align:center;
+}
+.home__text__h3{
+  text-align: center;
+}
+.home__text__title__h2{
+  margin:30px auto;
+
+}
+.home__text__h4{
+  text-align:center;
+  margin-top:30px;
+}
+.about-img{
+  height: 200px;
+  width: 200px;
+
+}

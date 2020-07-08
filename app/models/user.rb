@@ -16,7 +16,8 @@ class User < ApplicationRecord
   has_many :bookmarks, dependent: :destroy
   has_many :bookmark_articles, through: :bookmarks, source: :article
 
-  validates :name, presence: true
+  validates :name, presence: true, length: { minimum: 2, maximum: 20 }
+  validates :profile, length: { maximum: 50 }
 
   def active_for_authentication?
     super && (is_deleted == false)

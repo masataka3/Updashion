@@ -1,3 +1,31 @@
 // Place all the styles related to the sub_materials controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+/*sub__material*/
+.sub__material__index__title{
+  background: #dfefff;
+  box-shadow: 0px 0px 0px 5px #dfefff;
+  border: dashed 2px white;
+  padding: 0.2em 0.5em;
+  width: 220px;
+  margin-bottom: 50px
+}
+.sub__material__show__title{
+  background: #dfefff;
+  box-shadow: 0px 0px 0px 5px #dfefff;
+  border: dashed 2px white;
+  padding: 0.2em 0.5em;
+  width: 260px;
+  margin-bottom: 50px
+}
+.sub__materials__conteiner{
+	width: 310px;
+	padding: 10px;
+	margin: 20px;
+}
+.sub_material__btn{
+	text-align: center;
+  margin-top:20px;
+}

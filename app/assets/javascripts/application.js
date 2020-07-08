@@ -19,9 +19,7 @@
 //= require_tree .
 
 
-
-
-$(function (){
+$(document).on('turbolinks:load', function() {
 // summernonte
 $('[data-provider="summernote"]').each(function(){
   $(this).summernote({
@@ -31,8 +29,6 @@ $('[data-provider="summernote"]').each(function(){
   fontNamesIgnoreCheck: ['Helvetica', 'sans-serif', 'Arial', 'Arial Black', 'Comic Sans MS', 'Courier New'],
     });
   });
-});
-$(function (){
   // article__imagepreview
   $('#article_image').on('change', function (e) {
       var reader = new FileReader();
@@ -43,8 +39,6 @@ $(function (){
       }
       reader.readAsDataURL(e.target.files[0]);
    });
-  });
-$(function (){
   // user__profile__image
     $('#user_profile_image').on('change', function (e) {
       var reader = new FileReader();
@@ -55,38 +49,18 @@ $(function (){
       }
       reader.readAsDataURL(e.target.files[0]);
   });
+    var swiper = new Swiper('.swiper-container', {
+    loop: true,
+    pagination: {
+    el: '.swiper-pagination',
+    type: 'bullets',
+    clickable: true,
+  },
+    autoplay: {
+    delay: 3000,
+    disableOnInteraction: true
+    },
+  });
 });
 
-
-
-// $(function (){
-// handler = Gmaps.build('Google');
-// handler.buildMap({ provider: { scrollwheel: false }, internal: {id: 'map'}}, function(){
-// markers = handler.addMarkers([
-//   {
-//     "lat": <%= @shop.latitude %>,
-//     "lng": <%= @shop.longitude %>,
-//     "infowindow": '<p><%= @shop.title %></p><p><%= @shop.address %></p><p><%= link_to "Googleマップで見る" ,"https://maps.google.co.jp/maps?q=loc:#{@shop.latitude},#{@shop.longitude}&iwloc=J",target: "_blank" %></p>'
-//   }
-// ]);
-// handler.bounds.extendWith(markers);
-// handler.fitMapToBounds();
-// handler.getMap().setZoom(17);
-//   });
-// });
-
-// $(function (){
-//   var swiper = new Swiper('.swiper-container', {
-//     loop: true,
-//     pagination: {
-//     el: '.swiper-pagination',
-//     type: 'bullets',
-//     clickable: true,
-//   },
-//     autoplay: {
-//     delay: 3000,
-//     disableOnInteraction: true
-//     },
-//   });
-// });
 

@@ -12,8 +12,14 @@
  *
  *= require swiper
  *= require_self
- *= require_homes
- *= require_shops
+ *= require homes
+ *= require articles
+ *= require users
+ *= require sub_materials
+ *= require historys
+ *= require shops
+ *= require textiles
+ *= require inquiry
  */
 
 
@@ -41,6 +47,13 @@
 	margin-top:51px;
 }
 
+.hash-tag{
+  background-color: #dfefff;
+  border-radius: 5px;
+  padding:5px;
+  margin-right: 10px;
+}
+
 footer {
 	background-color:#dfefff;
 }
@@ -49,44 +62,19 @@ footer {
 	width: 550px;
 	margin: 0 auto;
 }
-.about-img{
-	height: 200px;
-	width: 200px;
-
-}
-
 
 header,nav,li,h1,h2,h3,h4,th,td,p,footer {
     font-family: Bluesky, 'Bluesky', Courier, "Segoe Print", sans-serif;
 }
 
-/*article index */
-.img_prev:hover {
-  cursor: pointer;
-  opacity: 0.7;
-  transform: scale(1.01, 1.01);
-}
 
-.hash-tag{
-  background-color: #dfefff;
-  border-radius: 5px;
-  padding:5px;
-  margin-right: 10px;
-}
 
 i{
   text-align: center;
   padding: 0 10px;
   margin: 40px 0;
 }
-/*スライド*/
-.swiper-container,.swiper-wrapper,.swiper-slide{
-  height: 500px;
-  width: 670px;
-}
-.sub-title {
-  margin-top: 400px;
-}
+
 /*コンテナ*/
 .sampleRow > div {
   min-height: 6em;
@@ -94,22 +82,7 @@ i{
   padding: 30px
 }
 
-/*home css*/
-.btn-stitch {
-  padding: 0.5em 1em;
-  text-decoration: none;
-  background: #dfefff ;
-  color: #FFF;
-  border-radius: 4px;
-  box-shadow: 0px 0px 0px 5px #dfefff;
-  border: dashed 4px #FFF;
-  margin :0 auto;
-  text-align: center;
-}
 
-.btn-stitch:hover {
-  border: dotted 1px #FFF;
-}
 /*テキスト アニメーション*/
 .text-anime3{
   animation: text_animation3 3s;
@@ -152,171 +125,11 @@ i{
   width: 160px;
   margin: 30px auto;
 }
-/*inquiry*/
-.inquity__title{
-  background: #dfefff;
-  box-shadow: 0px 0px 0px 5px #dfefff;
-  border: dashed 2px white;
-  padding: 0.2em 0.5em;
-  width: 220px;
-  margin-bottom: 30px;
-}
-
-/*article*/
-.article__index__title{
-  background: #dfefff;
-  box-shadow: 0px 0px 0px 5px #dfefff;
-  border: dashed 2px white;
-  padding: 0.2em 0.5em;
-  width: 160px;
-}
-.hover {
-  border-radius: 50%;
-  transition: all 0.6s ease 0s;
-}
-.hover:hover {
-  cursor: pointer;
-  transform: scale(1.1, 1.1);
-}
-.article__edit__title{
-  background: #dfefff;
-  box-shadow: 0px 0px 0px 5px #dfefff;
-  border: dashed 2px white;
-  padding: 0.2em 0.5em;
-  width: 130px;
-  text-align: center;
-  margin: 30px auto ;
-}
-.article__new__title{
-  background: #dfefff;
-  box-shadow: 0px 0px 0px 5px #dfefff;
-  border: dashed 2px white;
-  padding: 0.2em 0.5em;
-  width: 160px;
-  text-align: center;
-  margin: 30px auto ;
-}
-/*user*/
-.user__show__title{
-  background: #dfefff;
-  box-shadow: 0px 0px 0px 5px #dfefff;
-  border: dashed 2px white;
-  padding: 0.2em 0.5em;
-  width: 160px;
-  margin-bottom: 30px;
-  text-align: center;
-}
-.user__edit__title{
-    background: #dfefff;
-    box-shadow: 0px 0px 0px 5px #dfefff;
-    border: dashed 2px white;
-    padding: 0.2em 0.5em;
-    width: 290px;
-    margin: 20px auto 50PX;
-    text-align: center;
-}
-.user__article__title{
-  background: #dfefff;
-  box-shadow: 0px 0px 0px 5px #dfefff;
-  border: dashed 2px white;
-  padding: 0.2em 0.5em;
-  width: 160px;
-  margin-bottom: 30px;
-  text-align: center;
-}
-.user_favorite_title{
-  width: 250px;
-  background: #dfefff;
-  box-shadow: 0px 0px 0px 5px #dfefff;
-  border: dashed 2px white;
-  padding: 0.2em 0.5em;
-  margin-bottom: 30px;
-  text-align: center;
-}
-  #preview_image {
+#preview_image {
     display: none;
     margin: 0 auto;
     height: 200px;
     width: 200px;
-}
-
-/*shop*/
-.shop__index__title{
-  background: #dfefff;
-  box-shadow: 0px 0px 0px 5px #dfefff;
-  border: dashed 2px white;
-  padding: 0.2em 0.5em;
-  width: 130px;
-  margin-bottom: 50px;
-}
-.shop__show__title{
-  background: #dfefff;
-  box-shadow: 0px 0px 0px 5px #dfefff;
-  border: dashed 2px white;
-  padding: 0.2em 0.5em;
-  width: 170px;
-  margin-bottom: 50px;
-}
-
-/*sub__material*/
-.sub__material__index__title{
-  background: #dfefff;
-  box-shadow: 0px 0px 0px 5px #dfefff;
-  border: dashed 2px white;
-  padding: 0.2em 0.5em;
-  width: 220px;
-  margin-bottom: 50px
-}
-.sub__material__show__title{
-  background: #dfefff;
-  box-shadow: 0px 0px 0px 5px #dfefff;
-  border: dashed 2px white;
-  padding: 0.2em 0.5em;
-  width: 260px;
-  margin-bottom: 50px
-}
-
-/*textile*/
-.textile__index__title{
-  background: #dfefff;
-  box-shadow: 0px 0px 0px 5px #dfefff;
-  border: dashed 2px white;
-  padding: 0.2em 0.5em;
-  width: 140px;
-  margin-bottom: 50px
-}
-.textile__show__title{
-  background: #dfefff;
-  box-shadow: 0px 0px 0px 5px #dfefff;
-  border: dashed 2px white;
-  padding: 0.2em 0.5em;
-  width: 190px;
-  margin-bottom: 50px
-}
-/*histories*/
-.history__index__title{
-  background: #dfefff;
-  box-shadow: 0px 0px 0px 5px #dfefff;
-  border: dashed 2px white;
-  padding: 0.2em 0.5em;
-  width: 150px;
-  margin-bottom: 50px
-}
-.history__show__title{
-  background: #dfefff;
-  box-shadow: 0px 0px 0px 5px #dfefff;
-  border: dashed 2px white;
-  padding: 0.2em 0.5em;
-  width: 200px;
-  margin-bottom: 50px;
-}
-/*tag*/
-.tag__index__title{
-  background: #dfefff;
-  box-shadow: 0px 0px 0px 5px #dfefff;
-  border: dashed 2px white;
-  padding: 0.2em 0.5em;
-  width: 160px;
 }
 /*スライドアニメーション textile shop  sub material hisyory 画像*/
 .box1{
@@ -337,7 +150,14 @@ i{
       height:80px;
   }
 
-
-
+/*デバイス*/
+.device__new{
+  text-align: center;
+  margin-bottom: 30px;
+}
+.field__device__new{
+  text-align: center;
+  margin-bottom: 30px;
+}
 
 

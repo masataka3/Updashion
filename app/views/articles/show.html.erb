@@ -11,7 +11,7 @@
 
   <div class="container">
     <div class="col-xs-3 ">
-          <span style="display: inline-block; margin-bottom:30px;">
+          <span class="profileimage">
             <%= attachment_image_tag @user, :profile_image ,size:'32x32',fallback: "icon.png" , class: "img-circle pull-left profile-thumb"%>
 
             <%=link_to user_path(@user) do %>
@@ -20,9 +20,9 @@
             <% if current_user != @user %>
               <span id="follow_form">
                 <% if current_user.following?(@user) %>
-                <%= render 'follow', user: @user %>
-              <% else %>
-                <%= render 'unfollow', user: @user %>
+                  <%= render 'unfollow', user: @user %>
+                <% else %>
+                  <%= render 'follow', user: @user %>
                 <% end %>
               <% end %>
             </span>
@@ -38,8 +38,8 @@
           <%= render 'bookmark', article: @article %>
         </span>
         <% if @article.user.id == current_user.id %>
-          <div style="display: inline-block;"> <%= link_to "編集画面へ", edit_article_path(@article), class: 'btn-sm btn-primary' %></div>
-          <div style="display: inline-block;"><%= link_to "Destroy", article_path(@article.id), method: :delete, "data-confirm"=> "本当に削除してもよろしいですか？", class: "btn-sm btn-danger"%></div>
+          <div class="article__new__btn"><%= link_to "編集画面へ", edit_article_path(@article), class: 'btn-sm btn-primary' %></div>
+          <div  class="article__new__btn"><%= link_to "Destroy", article_path(@article.id), method: :delete, "data-confirm"=> "本当に削除してもよろしいですか？", class: "btn-sm btn-danger"%></div>
         <% end %>
       </div>
       <div class="field">
@@ -50,15 +50,15 @@
       </div>
 
       <h2>コメント一覧</h2>
-      <div class="show-tb comment_<%= @article.id %>" style="margin:20px;">
+      <div class="show-tb comment_<%= @article.id %>">
         <%= render 'comment_area', comments: @article.comments %>
       </div>
     </div>
 
     <div class="col-xs-9 ">
-      <div class="columns is-centered"style="display: inline-block;margin-left:150px;">
+      <div class="columns is-centered" style="display: inline-block;margin-left:150px;">
       <h3 class="title is-4">『<%= @article.title %>』</h3>
-        <div class="content" style="margin-top:30px;">
+        <div class="content">
           <%= simple_format @article.body %>
         </div>
         <% @article.tag_list.each do |tag| %>

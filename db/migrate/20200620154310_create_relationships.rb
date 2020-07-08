@@ -7,6 +7,7 @@ class CreateRelationships < ActiveRecord::Migration[5.2]
       t.integer :followed_id
 
       t.timestamps
+
     end
   end
 end

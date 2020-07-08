@@ -4,28 +4,28 @@
       <h2 class="signup__title">会員登録</h2>
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= devise_error_messages! %>
-      <div style="text-align: center;margin-bottom: 30px;">
+      <div class="device__new">
       登録は無料。10秒で完了します<br>
       Updashionは初めての人が、<br>
       簡単に洋服に取り掛かりやすくなるような情報を発信します。
       </div>
-      <div style="text-align:center; margin: 30px;">
+      <div class="device__new">
         会員として登録すると、こんなことができます。
-          <p style="text-align:center; margin-top: 30px;">洋服の歴史や生地の種類を勉強できる</p>
+          <p class="device__new">洋服の歴史や生地の種類を勉強できる</p>
           <p>ユーザーさんとのやりとりができる</p>
           <p>あなたから洋服にまつわる情報を発信できる</p>
       </div>
-      <div class="field"style="text-align: center;margin-bottom: 30px;">
+      <div class="field__device__new">
         <%= f.label :ニックネーム %><br />
         <%= f.text_field :name, autofocus: true, size:50, class: "name" %>
          <p class="help-block">サイト内で表示されるあなたのニックネームです。</p>
       </div>
-      <div class="field"style="text-align: center;margin-bottom: 30px;">
+      <div class="field__device__new">
         <%= f.label :メールアドレス %><br />
         <%= f.email_field :email, size:50, class: "email" %>
       </div>
 
-      <div class="field"style="text-align: center;margin-bottom: 30px;">
+      <div class="field__device__new">
         <%= f.label :パスワード %>
         <% if @minimum_password_length %>
         <em><%= @minimum_password_length %> 文字以上</em>
@@ -34,12 +34,12 @@
         <p class="help-block">A〜Zの半角の小文字と大文字、０～９までの数字でご入力ください。</p>
       </div>
 
-      <div class="field"style="text-align: center;margin-bottom: 30px;">
+      <div class="field__device__new">
         <%= f.label :パスワード（確認） %><br />
         <%= f.password_field :password_confirmation, autocomplete: "off", size:50, class: "password_confirm" %>
       </div>
 
-      <div class="actions" style="text-align: center;margin-bottom: 30px;">
+      <div class="field__device__new">
         <%= f.submit "会員登録" , class: 'btn btn-success ' %>
       </div>
     <% end %>

@@ -14,16 +14,16 @@
         <%= form_for @article do |f| %>
         <img id="preview_image">
 
-        <div id= "item_image" style ="text-align: center;">
+        <div id= "item_image">
           <%= attachment_image_tag @article, :image, class: "img-square", fallback: "icon.png", size:"200x200" %>
         </div>
 
-        <div class="field"style="text-align: center;margin: 30px;">
-         <div style="text-align: center;margin: 30px;"> <%= f.label :Topimage %></div>
+        <div class="field__text">
+         <div class="field__text"> <%= f.label :Topimage %></div>
           <%= f.attachment_field :image, class: "image" %>
         </div>
 
-        <div class="field"style="text-align: center;margin-bottom: 30px;">
+        <div class="field__area">
             <%= f.label :title, "title", class: "label" %>
             <%= f.text_field :title, class: "title",size:75 %>
           </div>
@@ -33,7 +33,7 @@
             <%= f.text_area :body , 'data-provider': :summernote %>
           </div>
           <div id="summernote"></div>
-          <div class="actions" style="text-align: center;margin-top: 50px;">
+          <div class="actions">
             <%= f.submit "投稿" , class: 'btn btn-success ' %>
           </div>
         <% end %>

@@ -5,32 +5,32 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
 
   devise_for :users, controllers: {
-    registrations: 'users/registrations'
+    registrations: 'users/registrations',
   }
   root 'home#top'
   get 'home/about'
   get 'search' => 'search#search'
   get 'users/unsubscribed' => 'users#unsubscribed'
-  resources :users, only: %i[show edit update] do
-    resource :relationships, only: %i[create destroy]
+  resources :users, only: %i(show edit update) do
+    resource :relationships, only: %i(create destroy)
     get 'follows' => 'relationships#follower', as: 'follows'
     get 'followers' => 'relationships#followed', as: 'followers'
   end
   put '/users/:id/hide' => 'users#hide', as: 'users_hide'
 
   resources :articles do
-    resource :comments, only: %i[create destroy]
-    resource :favorites, only: %i[create destroy]
-    resource :bookmarks, only: %i[create destroy]
+    resource :comments, only: %i(create destroy)
+    resource :favorites, only: %i(create destroy)
+    resource :bookmarks, only: %i(create destroy)
     collection do
       get :tags
     end
   end
 
-  resources :historys, only: %i[index show]
-  resources :textiles, only: %i[index show]
-  resources :shops, only: %i[index show]
-  resources :sub_materials, only: %i[index show]
+  resources :historys, only: %i(index show)
+  resources :textiles, only: %i(index show)
+  resources :shops, only: %i(index show)
+  resources :sub_materials, only: %i(index show)
 
   get 'inquiry/index'
   post 'inquiry/confirm'

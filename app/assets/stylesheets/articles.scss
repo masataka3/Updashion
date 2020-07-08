@@ -1,0 +1,108 @@
+// Place all the styles related to the article controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+/*article index */
+.img_prev:hover {
+  cursor: pointer;
+  opacity: 0.7;
+  transform: scale(1.01, 1.01);
+}
+.article__index__title{
+  background: #dfefff;
+  box-shadow: 0px 0px 0px 5px #dfefff;
+  border: dashed 2px white;
+  padding: 0.2em 0.5em;
+  width: 160px;
+}
+.hover {
+  border-radius: 50%;
+  transition: all 0.6s ease 0s;
+}
+.hover:hover {
+  cursor: pointer;
+  transform: scale(1.1, 1.1);
+}
+.article__index{
+	width: 340px;
+	padding: 20px;
+	margin: 20px;
+}
+.article__index__text{
+	margin-top:40px
+}
+.article__time{
+	margin-top:20px;
+}
+/*edit*/
+#item_image{
+	text-align: center;
+}
+.article__edit__title{
+  background: #dfefff;
+  box-shadow: 0px 0px 0px 5px #dfefff;
+  border: dashed 2px white;
+  padding: 0.2em 0.5em;
+  width: 130px;
+  text-align: center;
+  margin: 30px auto ;
+}
+/*new edit*/
+.field__text{
+	text-align: center;
+	margin: 30px
+}
+.field__area{
+	text-align: center;
+	margin-bottom: 30px
+}
+.actions{
+	text-align: center;
+	margin-top: 50px;
+}
+/*article_new*/
+.item_image{
+	text-align: center;
+}
+.field__area__new{
+	text-align: center;
+}
+.article__new__title{
+  background: #dfefff;
+  box-shadow: 0px 0px 0px 5px #dfefff;
+  border: dashed 2px white;
+  padding: 0.2em 0.5em;
+  width: 160px;
+  text-align: center;
+  margin: 30px auto ;
+}
+/*articleshow*/
+.profileimage{
+	display: inline-block;
+	margin-bottom:30px;
+}
+.article__new__btn{
+	display: inline-block;
+}
+.how-tb comment_{
+	margin:20px;
+}
+.content{
+	margin-top:30px;
+}
+.comment{
+	margin:20px 0;
+}
+.comment__time{
+	margin-bottom:20px;
+}
+/*like*/
+.like__block{
+	display: inline-block;
+}
+/*tags*/
+.tag__container{
+	width: 310px;
+	padding: 10px;
+	margin: 20px;
+}

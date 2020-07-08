@@ -5,7 +5,7 @@
     </div>
       <div class="row sampleRow">
       <% @articles.each do |article|%>
-      <div class="col-md-12"  style="width: 310px; padding: 10px; margin: 20px;">
+      <div class="col-md-12 tag__container">
       	<div class="box1">
 			<%= attachment_image_tag article, :image ,size:'280x280',fallback: "icon.png"%>
 		</div>
@@ -20,7 +20,7 @@
          ＃<%= link_to "#{tag}", tags_articles_path(tag_name: tag) %>
      	</span>
      	<% end %>
-          <div style="margin-top:20px;"><%= article.updated_at.strftime("%Y-%m-%d %H:%M") %></div>
+          <div class="article__time"><%= article.updated_at.strftime("%Y-%m-%d %H:%M") %></div>
       </div>
     <% end %>
     </div>

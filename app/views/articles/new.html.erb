@@ -16,22 +16,21 @@
 
         <img id="preview_image">
 
-        <div id= "item_image" style ="text-align: center;">
+        <div id= "item_image">
           <%= attachment_image_tag @article, :image, class: "img-square", fallback: "icon.png", size:"200x200" %>
         </div>
 
-
-        <div class="field"style="text-align: center;margin-bottom: 30px;">
-         <div style="text-align: center; margin:30px"><%= f.label :Topimage %></div>
+        <div class="field__aera">
+         <div class="field__text"><%= f.label :Topimage %></div>
           <div><%= f.attachment_field :image, class: "user_image" %></div>
         </div>
-        <div class="field"style="text-align: center;margin-bottom: 30px;">
+        <div class="field__area">
           <div class="field"><%= f.label :タイトル %></div>
           <%= f.text_field :title , class: "title",size:75,placeholder: "作品のタイトルを入れてください" %>
         </div>
 
-        <div class="field"style="text-align: center;margin-bottom: 30px;">
-          <div class="field"style="text-align: center;"><%= f.label :内容 %></div>
+        <div class="field__area">
+          <div class="field__area__new"><%= f.label :内容 %></div>
           <%= f.text_area :body , 'data-provider': :summernote %>
         </div>
         <div id="summernote"></div>
@@ -39,7 +38,7 @@
           <%= f.label :tag_list, 'タグをカンマ区切りで入力' %>
           <%= text_field_tag 'article[tag_list]', @article.tag_list, :class => "form-control" %>
         </div>
-        <div class="actions" style="text-align: center;margin-top: 30px;">
+        <div class="actions">
           <%= f.submit "投稿" , class: 'btn btn-success ' %>
         </div>
       <% end %>

@@ -7,7 +7,7 @@ class Article < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :bookmarks, dependent: :destroy
   with_options presence: true do
-    validates :title
+    validates :title, length: { maximum: 200 }
     validates :body
   end
   def bookmark_by?(user)

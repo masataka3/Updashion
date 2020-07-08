@@ -5,14 +5,14 @@
     </div>
     <div class="row sampleRow">
       <% @histories.each do |history|%>
-      <div class="col-md-12"  style="width: 310px; padding: 10px; margin: 20px;">
+      <div class="col-md-12"style="width: 310px; padding: 10px; margin: 20px;">
         <div class="box1">
           <% if history.image? %>
             <%= image_tag history.image.url ,size: "280x280"%>
           <% end %>
         </div>
         <div><h4><%= history.title %></h4></div>
-        <div style="text-align: center"><%= link_to "詳細", history_path(history), class: "btn btn-success"  %></div>
+        <div class="history__btn"><%= link_to "詳細", history_path(history), class: "btn btn-success"  %></div>
       </div>
     <% end %>
     </div>

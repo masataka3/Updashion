@@ -1,8 +1,8 @@
 <div class="row sampleRow">
-  <div style =" margin : 0 auto">
+  <div class="user__box">
    <% user.bookmark_articles.each do |article| %>
     <div class="column is-3" style="width: 250px; padding: 10px;display: inline-block;margin-right: 0px;">
-      <div class="image" style="margin-bottom:20px;">
+      <div class="user__image">
           <%= attachment_image_tag article, :image, fallback: "icon.png",size: "200x200"%>
       </div>
       <div>
