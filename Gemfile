@@ -93,7 +93,7 @@ gem 'rails-i18n'
 
 gem 'acts-as-taggable-on', '~> 6.0'
 gem 'gimei'
-# サマーノート
+# サマーノートmys
 gem 'simple_form'
 gem 'summernote-rails', '~> 0.8.10.0'
 # デプロイ
