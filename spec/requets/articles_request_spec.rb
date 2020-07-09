@@ -13,4 +13,14 @@ RSpec.describe 'Articles', type: :request do
       end
     end
   end
+  describe '記事編集ページ' do
+    context '記事編集ページが正しく表示される' do
+      before do
+        get article_edit_path
+      end
+
+        it 'リクエストは200 OKとなること' do
+        expect(response.status).to eq 200
+      end
+    end
 end

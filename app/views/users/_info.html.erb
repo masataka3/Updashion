@@ -1,22 +1,22 @@
-  <table class='user_table'style ="word-wrap: break-word;table-layout: fixed;">
+<table width=”150″ style="margin-bottom: 30px;">
     <tr>
-      <th style=" border: 0px none; "><%= attachment_image_tag(user, :profile_image, fallback: "icon.png", size: "200x200",class: "img-circle pull-left profile-thumb") %></th>
-    </tr>
-    <tr>
-      <th style="border: none;" >name</th>
-      <td style="border: none;"><%= user.name %></td>
+      <th style=" border: none; "><%= attachment_image_tag(user, :profile_image, fallback: "icon.png", size: "200x200",class: "img-circle pull-left profile-thumb") %></th>
     </tr>
     <tr>
-      <th style="border: none;">profile</th>
-      <td style="border: none;"><%= user.profile %></td>
-    </tr>
-    </tr>
-     <th style="border: none;">follows</th>
-    <th style="border: none;"><%= link_to user.follower.count, user_follows_path(user) %></th>
+      <th width=”30”> name</th>
+      <th width=”30”><%= user.name %></td>
     </tr>
     <tr>
-      <th style="border: none;">followers</th>
-      <th style="border: none;"><%= link_to user.followed.count, user_followers_path(user) %></th>
+      <th width=”30”>profile</th>
+      <td width=”30”><%= user.profile %></td>
+    </tr>
+    </tr>
+     <th width=”30”>follows</th>
+     <th width=”30”><%= link_to user.follower.count, user_follows_path(user) %></th>
+    </tr>
+    <tr>
+      <th width=”30”>followers</th>
+      <th width=”30”><%= link_to user.followed.count, user_followers_path(user) %></th>
     </tr>
   </table>
   <% if current_user != user %>
@@ -33,3 +33,4 @@
   <% end %>
 
 
+<!-- テーブルサイズ変更できない -->
