@@ -8,14 +8,14 @@ RSpec.describe 'Articleモデルのテスト', type: :model do
     context 'titleカラム' do
       it '空欄でないこと' do
         article.title = ''
-        expect(book.valid?).to eq false
+        expect(article.valid?).to eq false
       end
     end
 
     context 'bodyカラム' do
       it '空欄でないこと' do
         book.body = ''
-        expect(book.valid?).to eq false
+        expect(article.valid?).to eq false
       end
     end
   end

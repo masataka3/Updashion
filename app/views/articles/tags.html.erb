@@ -5,7 +5,7 @@
     </div>
       <div class="row sampleRow">
       <% @articles.each do |article|%>
-      <div class="col-md-12" style="width: 310px; padding: 10px; margin: 20px;">
+      <div class="tag-box col-md-12" style="width: 310px; padding: 10px; margin: 20px;">
       	<div class="box1">
 			<%= attachment_image_tag article, :image ,size:'280x280',fallback: "icon.png"%>
 		</div>
@@ -26,6 +26,3 @@
     </div>
   </div>
 </div>
-
-
-<!-- 変更しました -->

@@ -13,7 +13,7 @@ ActiveAdmin.register Shop do
       f.input :body
       f.input :image, as: :file
       f.input :address
-      f.input :access
+      f.input :access  #ここでエラーが出ている
     end
     f.actions
   end
