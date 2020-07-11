@@ -10,13 +10,6 @@ class HistorysController < ApplicationController
     @history = History.find(params[:id])
   end
 
-  def search
-    logger.debug params
-    method = params[:search_method]
-    word = params[:search_word]
-    @historys = History.search(method, title)
-  end
-
   private
 
   def shop_params

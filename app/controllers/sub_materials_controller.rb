@@ -10,12 +10,6 @@ class SubMaterialsController < ApplicationController
     @sub_material = SubMaterial.find(params[:id])
   end
 
-  def search
-    method = params[:search_method]
-    word = params[:search_word]
-    @sub_materials = SubMaterial.search(method, title)
-  end
-
   private
 
   def sub_material_params

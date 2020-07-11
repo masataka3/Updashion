@@ -1,35 +1,31 @@
-<table>
-    <tr>
-      <th><%= attachment_image_tag(user, :profile_image, fallback: "icon.png", size: "200x200",class: "img-circle pull-left profile-thumb") %></th>
-    </tr>
-    <tr>
-      <th> name</th>
-      <td><%= user.name %></td>
-    </tr>
-    <tr>
-      <th>profile</th>
-      <td><%= user.profile %></td>
-    </tr>
-    </tr>
-     <th>follows</th>
-     <td><%= link_to user.follower.count, user_follows_path(user) %></th>
-    </tr>
-    <tr>
-      <th>followers</th>
-      <td><%= link_to user.followed.count, user_followers_path(user) %></th>
-    </tr>
-  </table>
-  <% if current_user != user %>
-    <% if current_user.following?(@user) %>
-    <span id="follow_form">
-      <%= render '/articles/unfollow', user: @user %>
-    <% else %>
-      <%= render '/articles/follow', user: @user %>
-      <% end %>
-    <% end %>
+<div>
+  <span class="user__info__image">
+    <%= attachment_image_tag(user, :profile_image, fallback: "icon.png", size: "250x250",class: "img-circle pull-left profile-thumb") %>
   </span>
+</div>
+<div class="user__info__box">
+  <span class="user__info__profile"><strong>name</strong></span>
+  <span><%= user.name %></span>
+</div>
+<div class="user__info__box">
+  <span class="user__info__profile"><strong>profile</strong></span>
+  <p><%= user.profile %></p>
+</div>
+<div class="user__info__box">
+  <span class="user__info__follow"><strong>follows</strong></span>
+  <span><%= link_to user.follower.count, user_follows_path(user) %></span>
+</div>
+<div class="user__info__box">
+  <span class="user__info__follower"><strong>followers</strong></span>
+  <span><%= link_to user.followed.count, user_followers_path(user) %></span>
+</div>
+<div>
   <% if user == current_user %>
-      <%= link_to 'プロフィールを変更する',edit_user_path(user),class: "btn btn-default  glyphicon glyphicon-wrench edit_user_#{user.id}" %>
+    <%= link_to 'プロフィールを変更する',edit_user_path(user),class: "btn btn-default  glyphicon glyphicon-wrench edit_user_#{user.id}" %>
   <% end %>
+</div>
+
+
+
 
 

@@ -158,6 +158,11 @@ GEM
     erubi (1.9.0)
     excon (0.75.0)
     execjs (2.7.0)
+    factory_bot (6.1.0)
+      activesupport (>= 5.0.0)
+    factory_bot_rails (6.1.0)
+      factory_bot (~> 6.1.0)
+      railties (>= 5.0.0)
     faraday (0.17.3)
       multipart-post (>= 1.2, < 3)
     ffi (1.13.1)
@@ -659,6 +664,7 @@ DEPENDENCIES
   devise-i18n
   dotenv-rails
   ed25519
+  factory_bot_rails
   fog
   geocoder
   gimei

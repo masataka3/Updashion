@@ -10,12 +10,6 @@ class TextilesController < ApplicationController
     @textile = Textile.find(params[:id])
   end
 
-  def search
-    method = params[:search_method]
-    word = params[:search_word]
-    @textile = Textile.search(method, title)
- end
-
   private
 
   def textile_params
