@@ -86,7 +86,7 @@ gem 'pry-byebug'
 gem 'activeadmin'
 gem 'carrierwave'
 gem 'devise-i18n'
-#gem 'fog'
+gem 'fog'
 # map
 gem 'geocoder'
 gem 'gmaps4rails'
