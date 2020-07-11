@@ -8,8 +8,7 @@
       <div class="col-md-12"style="width: 310px; padding: 10px; margin: 20px;">
         <div class = "box1" >
           <% if textile.image? %>
-			      <%#= image_tag textile.image.url, size: "280x280" %>
-            <%= image_tag photo.image.to_s, size: "280x280"%>
+			      <%= image_tag textile.image.url, size: "280x280" %>
 		　     <% end %>
         </div>
         <div><h4><%= textile.title %></h4></div>
