@@ -5,7 +5,10 @@ class CommentsController < ApplicationController
     @article = Article.find(params[:article_id])
     @comment = current_user.comments.new(comment_params)
     @comment.article_id = @article.id
-    @comment.save!
+    if @comment.save!
+    else
+      @comments = Comment.where(id: @article)
+    end
   end
 
   def destroy

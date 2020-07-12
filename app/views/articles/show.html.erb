@@ -10,10 +10,10 @@
   <% end %>
 
   <div class="container">
+    <p id="notice"><%= notice %></p>
     <div class="col-xs-3 ">
           <span class="profileimage">
             <%= attachment_image_tag @user, :profile_image ,size:'32x32',fallback: "icon.png" , class: "img-circle pull-left profile-thumb"%>
-
             <%=link_to user_path(@user) do %>
             <%= @user.name %>さん
             <% end %>:
