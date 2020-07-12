@@ -25,9 +25,7 @@ ActiveAdmin.register Shop do
       row :access
       row :latitude
       row :longitude
-      row :image do
-        image_tag(shop.image.url)
-      end
+      row :image
     end
   end
   #

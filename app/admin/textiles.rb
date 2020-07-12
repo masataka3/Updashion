@@ -19,9 +19,7 @@ ActiveAdmin.register Textile do
     attributes_table do
       row :title
       row :body
-      row :image do
-        image_tag(textile.image.url)
-      end
+      row :image
     end
   end
   #

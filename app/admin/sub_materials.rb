@@ -19,9 +19,7 @@ ActiveAdmin.register SubMaterial do
     attributes_table do
       row :title
       row :body
-      row :image do
-        image_tag(sub_material.image.url)
-      end
+      row :image
     end
   end
   #

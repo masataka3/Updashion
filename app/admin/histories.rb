@@ -19,9 +19,7 @@ ActiveAdmin.register History do
     attributes_table do
       row :title
       row :body
-      row :image do
-        image_tag(history.image.url)
-      end
+      row :image
     end
   end
   #
