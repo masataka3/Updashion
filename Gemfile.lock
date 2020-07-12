@@ -7,6 +7,14 @@ GIT
       rest-client (~> 2)
       sinatra (~> 2.0.0.beta2)
 
+GIT
+  remote: https://github.com/stympy/faker.git
+  revision: 3f72057a7522849243c4c7fa8d0527580588cbcf
+  branch: master
+  specs:
+    faker (2.13.0)
+      i18n (>= 1.6, < 2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -665,6 +673,7 @@ DEPENDENCIES
   dotenv-rails
   ed25519
   factory_bot_rails
+  faker!
   fog
   geocoder
   gimei

@@ -1,9 +1,9 @@
 <div class ="container">
   <div class = "row">
     <div class="page-header">
-      <h1>お問い合わせ</h1>
+      <h2 class="inquity__title">お問い合わせ</h2>
     </div>
-
+    <div class="inquiry__box">
     <%= form_for @inquiry, :url => inquiry_thanks_path do |f| %>
       <table class="table">
         <tr>
@@ -28,6 +28,7 @@
           </td>
         </tr>
       </table>
+    </div>
       <%= f.submit '送信', :class => 'btn btn-primary' %>
       <%= link_to "戻る", inquiry_index_path %>
     <% end %>

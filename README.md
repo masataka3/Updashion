@@ -37,3 +37,8 @@
 https://docs.google.com/spreadsheets/d/1yMZ3bSRxAxOkjWkcUv-ukdmbVcYyORzUToU3r80jZpU/edit#gid=0
 
 
+## 使用法方法
+- $ bundle installをかけてください。
+- $ rails db:seedをかけてください。
+- adminのemaill    admin@example.com
+- adminのパスワード　password

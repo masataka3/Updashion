@@ -14,7 +14,7 @@ RSpec.describe 'Articleモデルのテスト', type: :model do
 
     context 'bodyカラム' do
       it '空欄でないこと' do
-        book.body = ''
+        article.body = ''
         expect(article.valid?).to eq false
       end
     end
