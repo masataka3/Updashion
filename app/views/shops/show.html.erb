@@ -23,7 +23,11 @@
     <div id="map"></div>
   </div>
 </div>
-
+    <span id="back">
+      <a href="#">
+        <%= image_tag asset_path("arrow.png")%>
+      </a>
+    </span>
 <script>
 handler = Gmaps.build('Google');
 handler.buildMap({ provider: { scrollwheel: false }, internal: {id: 'map'}}, function(){
