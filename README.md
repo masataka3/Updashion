@@ -16,7 +16,7 @@
 3. 思いが詰まった洋服を知る　作る　知ることにより大量生産、大量廃棄ではなく長く着れる服の提案
 - 服好きの方は洋服の歴史、背景を知ることで自身の服に愛着を持たせたいと感じた
 4. 服の仕様に迷った際、検討する記事に着くまでに時間がかかりまとめサイト的なものが欲しかった。
-- 学生だった頃、したい細部の仕様の名前がわからず、わかるまでに時間がかかった経験から、仕様などがまとまったサイトが欲しかった。
+- 学生だった頃、したい細部の仕様の名前がわからず、わかるまでに時間がかかった経験から、やりたい仕様を見つけやすいサイトの提案。
 
 ### ターゲットユーザ
 1. 洋服の専門学校に通う　卒業した学生（主に調べ物はスマホのためレスポンシブ対応を心がける）
@@ -35,6 +35,8 @@
 
 ### 機能一覧
 https://docs.google.com/spreadsheets/d/1yMZ3bSRxAxOkjWkcUv-ukdmbVcYyORzUToU3r80jZpU/edit#gid=0
+### テスト項目
+https://www.icloud.com/numbers/0PzB4d5OyJcPFZPq7hc0CkIBA#updashion
 
 ### テスト項目
 https://www.icloud.com/numbers/0PzB4d5OyJcPFZPq7hc0CkIBA#updashion
