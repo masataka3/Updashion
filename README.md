@@ -36,6 +36,8 @@
 ### 機能一覧
 https://docs.google.com/spreadsheets/d/1yMZ3bSRxAxOkjWkcUv-ukdmbVcYyORzUToU3r80jZpU/edit#gid=0
 
+### テスト項目
+https://www.icloud.com/numbers/0PzB4d5OyJcPFZPq7hc0CkIBA#updashion
 
 ## 使用法方法
 - $ bundle installをかけてください。
