@@ -6,10 +6,6 @@
         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <div class="field__device__new">
           <div class="field__device__new">
-            <%= f.label :ニックネーム %><br />
-            <%= f.text_field :name, autofocus: true,size:50, class: "name" %>
-          </div>
-          <div class="field__device__new">
             <%= f.label :メールアドレス %><br />
             <%= f.email_field :email, size:50, class: "email" %>
           </div>
