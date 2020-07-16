@@ -173,3 +173,9 @@ p {
 #back img {
   width: 50px;
 }
+@media screen and (max-width:425px) {
+  header {
+    width: 100%;
+
+    }
+}
