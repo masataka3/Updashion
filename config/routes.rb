@@ -7,9 +7,12 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {
     registrations: 'users/registrations',
   }
+  #  devise_scope :user do
+  #   post 'users/guest_sign_in', to: 'users/sessions#new_guest'
+  # end
   root 'home#top'
   get 'home/about'
-  get 'search' => 'search#search'
+  post '/home/guest_sign_in', to: 'home#new_guest'
   get 'users/unsubscribed' => 'users#unsubscribed'
   resources :users, only: %i(show edit update) do
     resource :relationships, only: %i(create destroy)
