@@ -44,5 +44,9 @@ https://www.icloud.com/numbers/0PzB4d5OyJcPFZPq7hc0CkIBA#updashion
 ## 使用法方法
 - $ bundle installをかけてください。
 - $ rails db:seedをかけてください。
+- 管理者で入りたい場合urlにadminと入力してください。
 - adminのemaill    admin@example.com
 - adminのパスワード　password
+- ゲストユーザーorサインアップをした状態でヘッダー内のプラスボタンを押すと新規投稿できます。
+
+

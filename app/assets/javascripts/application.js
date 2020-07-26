@@ -57,7 +57,6 @@ $('[data-provider="summernote"]').each(function(){
     clickable: true,
   },
     autoplay: {
-    delay: 3000,
     disableOnInteraction: true
     },
   });

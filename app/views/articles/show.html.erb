@@ -31,9 +31,11 @@
         <%= attachment_image_tag @article, :image ,size:'280x280',fallback: "icon.png"%>
       </span>
       <div>
+        <!-- いいね機能　非同期処理　 -->
         <span class="article_like_<%= @article.id %>">
           <%= render 'like', article: @article %>
         </span>
+        <!-- お気に入り　非同期処理　 -->
         <span class="article_bookmark_<%= @article.id %>">
           <%= render 'bookmark', article: @article %>
         </span>
@@ -69,6 +71,7 @@
       </div>
     </div>
   </div>
+  <!-- ページスクロール　 -->
       <span id="back">
       <a href="#">
         <%= image_tag asset_path("arrow.png")%>
